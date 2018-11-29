@@ -1,0 +1,19 @@
+---
+title: "Online Behavioral Experiments with jsPsych"
+author: "Joshua R. de Leeuw"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+---
+
+```{r, include=FALSE}
+if(!dir.exists('docs/demos')) { dir.create('docs/demos') }
+file.copy('demos', 'docs', recursive = T, overwrite = T)
+```
+
+# Hello World
+  
+Hi.
+
+Bye.
