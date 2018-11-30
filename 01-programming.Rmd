@@ -1,0 +1,32 @@
+---
+title: "Online Behavioral Experiments with jsPsych"
+author: "Joshua R. de Leeuw"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+---
+
+# Programming for the Web
+
+## One website, three languages 
+
+### HTML
+
+### CSS
+ 
+### JavaScript
+
+### How jsPsych uses HTML/CSS/JS
+
+## Publishing a website
+
+## Tools for web development
+
+### Editor
+
+### Browser developer tools
+
+### SFTP client
+
+### Database client
