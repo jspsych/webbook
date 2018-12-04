@@ -143,15 +143,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">&lt;p&gt;</span>This is the text in paragraph two.<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p>HTML uses <em>tags</em> – like <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> above – to define elements. The type of element is defined by the text in the tag. <code>&lt;p&gt;</code> tags create paragraphs, <code>&lt;img&gt;</code> tags create images, and <code>&lt;audio&gt;</code> tags create audio. Elements begin with the type of element in <code>&lt; &gt;</code> brackets, and end with the same tag plus a backslash: <code>&lt;/ &gt;</code>.</p>
 <p>HTML defines <strong>a lot</strong> of different elements. <strong>[maybe a link here?]</strong>. But you don’t need to know all or even most of these to get started with HTML. As long as you understand a few ideas about how to use HTML, you’ll be able to understand HTML markup and modify it to suit your needs.</p>
-<div id="nesting-elements-in-html" class="section level4">
-<h4><span class="header-section-number">1.2.1.1</span> Nesting elements in HTML</h4>
-<p>Elements in HTML can be nested.</p>
-</div>
 <div id="html-attributes" class="section level4">
-<h4><span class="header-section-number">1.2.1.2</span> HTML attributes</h4>
+<h4><span class="header-section-number">1.2.1.1</span> HTML attributes</h4>
+<p>HTML tags often have additional attributes that control additional properties of the element. One attribute of the <code>&lt;img&gt;</code> tag is the <code>src</code>, which defines the source of the image. The <code>&lt;img&gt;</code> tag below has the <code>src</code> attribute set to the URL of the jsPsych logo.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;https://www.jspsych.org/img/jspsych-logo.jpg&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></code></pre></div>
+<p>Attributes are declared by putting a space between the tag name and the attribute name and <code>=</code> after the attribute. The value to the right of the <code>=</code> will be assigned to that attribute. Tags can have multiple attributes separated by a space. The <code>alt</code> attribute for an <code>img</code> tag is used to describe the <em>alternate text</em> that would replace the image for users using screen readers or other assistive devices.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;https://www.jspsych.org/img/jspsych-logo.jpg&quot;</span><span class="ot"> alt=</span><span class="st">&quot;jsPsych logo&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></code></pre></div>
+<p>Two very useful attributes to know are <code>id</code> and <code>class</code>. These are both ways to identify elements on the page so that JavaScript and CSS can interact with them more easily. <code>id</code> values should typically be unique, and are used when CSS or JavaScript needs to target one particular element on a page. <code>class</code> values can be applied to many elements on a page, and are used when CSS or JavaScript needs to interact with all the instances of a particular set of elements.</p>
+</div>
+<div id="nesting-elements-in-html" class="section level4">
+<h4><span class="header-section-number">1.2.1.2</span> Nesting elements in HTML</h4>
+<p>Elements in HTML can be nested within other elements. For example, a link to another website may be nested within a paragraph.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>Please see the <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.jspsych.org&quot;</span><span class="kw">&gt;</span>jsPsych documentation<span class="kw">&lt;/a&gt;</span> for more information.<span class="kw">&lt;/p&gt;</span></code></pre></div>
+<p>An important aspect of nesting elements is that the inner-most element (<code>&lt;a&gt;</code> above) must be closed before the element that contains it is closed. The following is wrong because the <code>&lt;p&gt;</code> element is closed before <code>&lt;a&gt;</code>, but <code>&lt;a&gt;</code> started after <code>&lt;p&gt;</code>.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>Visit <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.jspsych.org&quot;</span><span class="kw">&gt;</span>jsPsych.org<span class="kw">&lt;/p&gt;&lt;/a&gt;</span></code></pre></div>
+<p>Nesting allows HTML to naturally reflect the hierarchical structure of a webpage. Webpages often have distinct sections, like navigation and content, that contain many elements. The <code>&lt;div&gt;</code> element is used to create arbitrary divisions of the page.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;table-of-contents&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;chapter-1.html&quot;</span><span class="kw">&gt;</span>Chapter 1<span class="kw">&lt;/a&gt;</span>
+  <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;chapter-2.html&quot;</span><span class="kw">&gt;</span>Chapter 2<span class="kw">&lt;/a&gt;</span>
+<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;p&gt;</span>It all began...<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;p&gt;</span>And then ...<span class="kw">&lt;/p&gt;</span>
+  <span class="kw">&lt;p&gt;</span>The end.<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/div&gt;</span></code></pre></div>
 </div>
 <div id="a-bare-bones-html-document." class="section level4">
 <h4><span class="header-section-number">1.2.1.3</span> A bare-bones HTML document.</h4>
+<p>If you create a text file with a few words in it, save it as a <code>.html</code> file, and open it in a web browser you’ll find that it is displayed as a web page. In some sense, a file of text is a minimal HTML file. However, most HTML files have a standard set of sections that look something like this.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>A bare-bones HTML document<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+<p>The above has a few HTML-elements, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, and <code>&lt;body&gt;</code>, as well as something that looks like an HTML element – <code>&lt;!DOCTYPE html&gt;</code> but is actually a declaration to the web browser about what kind of document this is and what the root element of the document is. In this case <code>&lt;html&gt;</code> serves as the root element, which is standard practice.</p>
+<p><code>&lt;head&gt;</code> defines the head-section of the document, which can contain information about the page that is not directly rendered in the visible page. An example of this is the <code>&lt;title&gt;</code> element, which controls the title that is displayed in the window or tab of the web browser.</p>
+<p><code>&lt;body&gt;</code> is the element that contains all of the content that will be displayed.</p>
 </div>
 </div>
 <div id="css" class="section level3">
