@@ -29,13 +29,70 @@ HTML uses *tags* -- like `<p>` and `</p>` above -- to define elements. The type 
 
 HTML defines **a lot** of different elements. **[maybe a link here?]**. But you don't need to know all or even most of these to get started with HTML. As long as you understand a few ideas about how to use HTML, you'll be able to understand HTML markup and modify it to suit your needs.
 
-#### Nesting elements in HTML
-
-Elements in HTML can be nested.
-
 #### HTML attributes
 
+HTML tags often have additional attributes that control additional properties of the element. One attribute of the `<img>` tag is the `src`, which defines the source of the image. The `<img>` tag below has the `src` attribute set to the URL of the jsPsych logo.
+
+```html
+<img src="https://www.jspsych.org/img/jspsych-logo.jpg"></img>
+```
+
+Attributes are declared by putting a space between the tag name and the attribute name and `=` after the attribute. The value to the right of the `=` will be assigned to that attribute. Tags can have multiple attributes separated by a space. The `alt` attribute for an `img` tag is used to describe the *alternate text* that would replace the image for users using screen readers or other assistive devices.
+
+```html
+<img src="https://www.jspsych.org/img/jspsych-logo.jpg" alt="jsPsych logo"></img>
+```
+
+Two very useful attributes to know are `id` and `class`. These are both ways to identify elements on the page so that JavaScript and CSS can interact with them more easily. `id` values should typically be unique, and are used when CSS or JavaScript needs to target one particular element on a page. `class` values can be applied to many elements on a page, and are used when CSS or JavaScript needs to interact with all the instances of a particular set of elements.
+
+#### Nesting elements in HTML
+
+Elements in HTML can be nested within other elements. For example, a link to another website may be nested within a paragraph.
+
+```html
+<p>Please see the <a href="https://www.jspsych.org">jsPsych documentation</a> for more information.</p>
+```
+
+An important aspect of nesting elements is that the inner-most element (`<a>` above) must be closed before the element that contains it is closed. The following is wrong because the `<p>` element is closed before `<a>`, but `<a>` started after `<p>`.
+
+```html
+<p>Visit <a href="https://www.jspsych.org">jsPsych.org</p></a>
+```
+
+Nesting allows HTML to naturally reflect the hierarchical structure of a webpage. Webpages often have distinct sections, like navigation and content, that contain many elements. The `<div>` element is used to create arbitrary divisions of the page.
+
+```html
+<div id="table-of-contents">
+  <a href="chapter-1.html">Chapter 1</a>
+  <a href="chapter-2.html">Chapter 2</a>
+</div>
+<div id="content">
+  <p>It all began...</p>
+  <p>And then ...</p>
+  <p>The end.</p>
+</div>
+```
+
 #### A bare-bones HTML document.
+
+If you create a text file with a few words in it, save it as a `.html` file, and open it in a web browser you'll find that it is displayed as a web page. In some sense, a file of text is a minimal HTML file. However, most HTML files have a standard set of sections that look something like this.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A bare-bones HTML document</title>
+  </head>
+  <body>
+  </body>
+</html>
+```
+
+The above has a few HTML-elements, `<html>`, `<head>`, `<title>`, and `<body>`, as well as something that looks like an HTML element -- `<!DOCTYPE html>` but is actually a declaration to the web browser about what kind of document this is and what the root element of the document is. In this case `<html>` serves as the root element, which is standard practice.
+
+`<head>` defines the head-section of the document, which can contain information about the page that is not directly rendered in the visible page. An example of this is the `<title>` element, which controls the title that is displayed in the window or tab of the web browser.
+
+`<body>` is the element that contains all of the content that will be displayed.
 
 ### CSS
 
