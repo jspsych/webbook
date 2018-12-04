@@ -102,7 +102,7 @@ CSS (Cascading Style Sheets) is a markup language that defines the visual appear
 p { font-size: 24px; color: red; }
 ```
 
-CSS rules require the use of a *selector*. The selector defines the set of elements that the rule applies to. In the above example, the rule applies to all `<p>` tags. Any HTML element type can be used as a selector. For example, the following properties set the background color of the `<body>` element to black and the text color to white.
+CSS rules require the use of a *selector*. The selector defines the set of elements that the rule applies to. The selector appears before the `{`. In the above example, the selector applies the rule to all `<p>` elements. Any HTML element type can be used as a selector. For example, the following properties set the background color of the `<body>` element to black and the text color to white.
 
 ```css
 body { background-color: black; color: white; }
@@ -119,6 +119,8 @@ To apply a CSS rule to all elements that belong to a particular class, the `.` s
 ```css
 .navigation-link { color: blue; }
 ```
+
+Inside the `{ }` appear a list of style rules that are applied to all elements that match the selector. The set of style rules is enormous, so the important thing is not to memorize different rules that could be applied, but rather to understand the concept of applying rules to elements based on selectors.
 
 #### Where does CSS go in a document?
 
