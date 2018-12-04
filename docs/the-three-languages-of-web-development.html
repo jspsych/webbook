@@ -138,7 +138,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>To create a simple experiment in jsPsych, you only need to have a basic familiarity with JavaScript. There is minimal HTML and CSS in the first few experiments in this book. However, if you want maximal flexibility over what content is in the screen and how it appears, you will need to become familiar with HTML and CSS. As you will discover, jsPsych is designed to allow users who are comfortable manipulating HTML and CSS full control over the output. <strong>[possible figure here with two different jsPsych examples, one simple one fancy]</strong>.</p>
 <div id="html" class="section level3">
 <h3><span class="header-section-number">1.2.1</span> HTML</h3>
-<p>HTML (HyperText Markup Language) defines the elements that exist on a webpage. For example, the HTML below defines two paragraphs.</p>
+<p>HTML (Hyper Text Markup Language) defines the elements that exist on a webpage. For example, the HTML below defines two paragraphs.</p>
 <div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;p&gt;</span>This is the text in paragraph one.<span class="kw">&lt;/p&gt;</span>
 <span class="kw">&lt;p&gt;</span>This is the text in paragraph two.<span class="kw">&lt;/p&gt;</span></code></pre></div>
 <p>HTML uses <em>tags</em> – like <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> above – to define elements. The type of element is defined by the text in the tag. <code>&lt;p&gt;</code> tags create paragraphs, <code>&lt;img&gt;</code> tags create images, and <code>&lt;audio&gt;</code> tags create audio. Elements begin with the type of element in <code>&lt; &gt;</code> brackets, and end with the same tag plus a backslash: <code>&lt;/ &gt;</code>.</p>
@@ -186,11 +186,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="css" class="section level3">
 <h3><span class="header-section-number">1.2.2</span> CSS</h3>
-<div id="how-css-and-html-interact" class="section level4">
-<h4><span class="header-section-number">1.2.2.1</span> How CSS and HTML interact</h4>
-</div>
+<p>CSS (Cascading Style Sheets) is a markup language that defines the visual appearance of elements on a webpage. For example, this CSS rule declares that all text in <code>&lt;p&gt;</code> tags will be displayed with a 24px font and in red.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span> <span class="kw">font-size:</span> <span class="dt">24px</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p>CSS rules require the use of a <em>selector</em>. The selector defines the set of elements that the rule applies to. In the above example, the rule applies to all <code>&lt;p&gt;</code> tags. Any HTML element type can be used as a selector. For example, the following properties set the background color of the <code>&lt;body&gt;</code> element to black and the text color to white.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">body <span class="kw">{</span> <span class="kw">background-color:</span> <span class="dt">black</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">white</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p>Two common selectors are selecting by ID and by class. Recall that the HTML attribute <code>id</code> can be used to assign a unique name to an element, and the HTML attribute <code>class</code> can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the <code>#</code> symbol is placed before the ID.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#table-of-contents</span> <span class="kw">{</span> <span class="kw">width:</span> <span class="dt">500px</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p>To apply a CSS rule to all elements that belong to a particular class, the <code>.</code> symbol is placed before the class name.</p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.navigation-link</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
 <div id="where-does-css-go-in-a-document" class="section level4">
-<h4><span class="header-section-number">1.2.2.2</span> Where does CSS go in a document?</h4>
+<h4><span class="header-section-number">1.2.2.1</span> Where does CSS go in a document?</h4>
 </div>
 </div>
 <div id="javascript" class="section level3">

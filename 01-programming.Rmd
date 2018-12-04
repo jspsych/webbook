@@ -18,7 +18,7 @@ To create a simple experiment in jsPsych, you only need to have a basic familiar
 
 ### HTML
 
-HTML (HyperText Markup Language) defines the elements that exist on a webpage. For example, the HTML below defines two paragraphs.
+HTML (Hyper Text Markup Language) defines the elements that exist on a webpage. For example, the HTML below defines two paragraphs.
 
 ```html
 <p>This is the text in paragraph one.</p>
@@ -96,7 +96,29 @@ The above has a few HTML-elements, `<html>`, `<head>`, `<title>`, and `<body>`, 
 
 ### CSS
 
-#### How CSS and HTML interact
+CSS (Cascading Style Sheets) is a markup language that defines the visual appearance of elements on a webpage. For example, this CSS rule declares that all text in `<p>` tags will be displayed with a 24px font and in red.
+
+```css
+p { font-size: 24px; color: red; }
+```
+
+CSS rules require the use of a *selector*. The selector defines the set of elements that the rule applies to. In the above example, the rule applies to all `<p>` tags. Any HTML element type can be used as a selector. For example, the following properties set the background color of the `<body>` element to black and the text color to white.
+
+```css
+body { background-color: black; color: white; }
+```
+
+Two common selectors are selecting by ID and by class. Recall that the HTML attribute `id` can be used to assign a unique name to an element, and the HTML attribute `class` can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the `#` symbol is placed before the ID.
+
+```css
+#table-of-contents { width: 500px; }
+```
+
+To apply a CSS rule to all elements that belong to a particular class, the `.` symbol is placed before the class name.
+
+```css
+.navigation-link { color: blue; }
+```
 
 #### Where does CSS go in a document?
 
