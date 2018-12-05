@@ -190,13 +190,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">p <span class="kw">{</span> <span class="kw">font-size:</span> <span class="dt">24px</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">red</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
 <p>CSS rules require the use of a <em>selector</em>. The selector defines the set of elements that the rule applies to. The selector appears before the <code>{</code>. In the above example, the selector applies the rule to all <code>&lt;p&gt;</code> elements. Any HTML element type can be used as a selector. For example, the following properties set the background color of the <code>&lt;body&gt;</code> element to black and the text color to white.</p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">body <span class="kw">{</span> <span class="kw">background-color:</span> <span class="dt">black</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">white</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
-<p>Two common selectors are selecting by ID and by class. Recall that the HTML attribute <code>id</code> can be used to assign a unique name to an element, and the HTML attribute <code>class</code> can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the <code>#</code> symbol is placed before the ID.</p>
+<p>Two common selectors are selection by ID and by class. Recall that the HTML attribute <code>id</code> can be used to assign a unique name to an element, and the HTML attribute <code>class</code> can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the <code>#</code> symbol is placed before the ID.</p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#table-of-contents</span> <span class="kw">{</span> <span class="kw">width:</span> <span class="dt">500px</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
 <p>To apply a CSS rule to all elements that belong to a particular class, the <code>.</code> symbol is placed before the class name.</p>
 <div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">.navigation-link</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">blue</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
 <p>Inside the <code>{ }</code> appear a list of style rules that are applied to all elements that match the selector. The set of style rules is enormous, so the important thing is not to memorize different rules that could be applied, but rather to understand the concept of applying rules to elements based on selectors.</p>
 <div id="where-does-css-go-in-a-document" class="section level4">
 <h4><span class="header-section-number">1.2.2.1</span> Where does CSS go in a document?</h4>
+<p>There are three places where CSS typically appears in an HTML document. Each of these places is equally valid, and the choice of where to include CSS depends on what is easiest. Often CSS will exist in all three locations in a single document.</p>
+<div id="external-css-file" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.1</span> External CSS file</h5>
+<p>One option is to create a separate <code>.css</code> file and load the file in the HTML document via a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> element.</p>
+<p><em>styles.css</em></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">body <span class="kw">{</span> <span class="kw">width:</span> <span class="dt">600px</span><span class="kw">;</span> <span class="kw">}</span>
+
+p <span class="kw">{</span> <span class="kw">font-size:</span> <span class="dt">18px</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span> <span class="kw">}</span></code></pre></div>
+<p><em>webpage.html</em></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;&lt;/link&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre></div>
+<p>The <code>&lt;link&gt;</code> tag has a few attributes that need to be set. The <code>href</code> attribute is the path to the source file. This path is relative to the location of the <code>.html</code> file that the <code>&lt;link&gt;</code> is in. If the <code>.html</code> and <code>.css</code> files are in the same folder, then just the name of the <code>.css</code> file is sufficient. The <code>rel</code> and <code>type</code> attributes both describe what kind of content is being loaded.</p>
+</div>
+<div id="style-tag" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.2</span> <code>&lt;style&gt;</code> tag</h5>
+<p>Another option is to include a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> element of the document.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;style&gt;</span>
+    body <span class="kw">{</span> <span class="kw">width:</span> <span class="dt">600px</span><span class="kw">;</span> <span class="kw">}</span>
+    p <span class="kw">{</span> <span class="kw">font-size:</span> <span class="dt">18px</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">bold</span><span class="kw">;</span> <span class="kw">}</span>
+  <span class="kw">&lt;/style&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre></div>
+</div>
+<div id="style-attribute" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.3</span> <code>style</code> attribute</h5>
+<p>HTML elements also support the <code>style</code> attribute, allowing styles to be set within the tag itself.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;body</span><span class="ot"> style=</span><span class="st">&quot;width:600px&quot;</span><span class="kw">&gt;</span>
+  <span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;font-size:18px; font-weight: bold;&quot;</span><span class="kw">&gt;</span>The start of a paragraph...<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;/body&gt;</span></code></pre></div>
+<p>This method is a little bit different than the first two, because there is no selector or <code>{ }</code> to define the rule. That’s because the style attribute of an element only applies to that element. This method of adding style can be useful when there is only a single element that needs the style rule. This method is also used a lot by jsPsych because (as will become clear much later in the book) it is a relatively easy way to embed style information in JavaScript code that is generating HTML content.</p>
+</div>
 </div>
 </div>
 <div id="javascript" class="section level3">

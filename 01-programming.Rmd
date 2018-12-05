@@ -108,7 +108,7 @@ CSS rules require the use of a *selector*. The selector defines the set of eleme
 body { background-color: black; color: white; }
 ```
 
-Two common selectors are selecting by ID and by class. Recall that the HTML attribute `id` can be used to assign a unique name to an element, and the HTML attribute `class` can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the `#` symbol is placed before the ID.
+Two common selectors are selection by ID and by class. Recall that the HTML attribute `id` can be used to assign a unique name to an element, and the HTML attribute `class` can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the `#` symbol is placed before the ID.
 
 ```css
 #table-of-contents { width: 500px; }
@@ -123,6 +123,53 @@ To apply a CSS rule to all elements that belong to a particular class, the `.` s
 Inside the `{ }` appear a list of style rules that are applied to all elements that match the selector. The set of style rules is enormous, so the important thing is not to memorize different rules that could be applied, but rather to understand the concept of applying rules to elements based on selectors.
 
 #### Where does CSS go in a document?
+
+There are three places where CSS typically appears in an HTML document. Each of these places is equally valid, and the choice of where to include CSS depends on what is easiest. Often CSS will exist in all three locations in a single document.
+
+##### External CSS file
+
+One option is to create a separate `.css` file and load the file in the HTML document via a `<link>` tag in the `<head>` element.
+
+_styles.css_
+```css
+body { width: 600px; }
+
+p { font-size: 18px; font-weight: bold; }
+```
+
+_webpage.html_
+```html
+<head>
+  <link href="styles.css" rel="stylesheet" type="text/css"></link>
+</head>
+```
+
+The `<link>` tag has a few attributes that need to be set. The `href` attribute is the path to the source file. This path is relative to the location of the `.html` file that the `<link>` is in. If the `.html` and `.css` files are in the same folder, then just the name of the `.css` file is sufficient. The `rel` and `type` attributes both describe what kind of content is being loaded.
+
+##### `<style>` tag
+
+Another option is to include a `<style>` tag in the `<head>` element of the document.
+
+```html
+<head>
+  <style>
+    body { width: 600px; }
+    p { font-size: 18px; font-weight: bold; }
+  </style>
+</head>
+```
+
+##### `style` attribute
+
+HTML elements also support the `style` attribute, allowing styles to be set within the tag itself.
+
+```html
+<body style="width:600px">
+  <p style="font-size:18px; font-weight: bold;">The start of a paragraph...</p>
+</body>
+```
+
+This method is a little bit different than the first two, because there is no selector or `{ }` to define the rule. That's because the style attribute of an element only applies to that element. This method of adding style can be useful when there is only a single element that needs the style rule. This method is also used a lot by jsPsych because (as will become clear much later in the book) it is a relatively easy way to embed style information in JavaScript code that is generating HTML content.
 
 ### JavaScript
 
