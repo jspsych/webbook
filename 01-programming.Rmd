@@ -10,7 +10,7 @@ When you open a browser and type in the URL of this book (http://book.jspsych.or
 
 A crticial point to remember as a new web developer is that it is the job of the web browser to transform this set of files into a website. As a developer, you are providing a (very detailed) "recipe" and the browser is assembling the final dish. Fortunately, browsers are far more precise than chefs and usually websites look the same regardless of which browser is doing the rendering. This is thanks to a commonly agreed upon set of standards that browser developers follow. However, these standards have some ambiguity and as a result there are times when a website will look exactly like you want it to in one browser but not in another.
 
-## The three languages of web development 
+## Three languages of the web 
 
 One of the challenging aspects of web development is that the programmer needs to know three different languages: HTML, CSS, and JavaScript. Each language is responsible for a different kind of information that the web browser needs in order to render the final website. HTML defines the structure of the elements on a website, such as the presence of text and images. CSS controls how those elements look. If you want to change the size of an image, the color of a background, or the font of a paragraph, you'll be using CSS. HTML and CSS are both markup languages. **[Need description of what that means]**. JavaScript, on the other hand, is a true programming language. In addition to all the normal kinds of computation that programming langauges generally allow, JavaScript is especially good at interacting with HTML and CSS. JavaScript can manipulate the HTML and CSS of a website, allowing the programmer to specify rules about when certain elements on the page should be added or removed (manipulating HTML) and when their appearance should change (manipulating CSS). These interactions can produce very simple results, such as changing the size of an image when the user clicks on it, or very complex ones, such as the development of a video game entirely in HTML, CSS, and JavaScript.
 
@@ -175,7 +175,9 @@ This method is a little bit different than the first two, because there is no se
 
 - JS as a programming language
 
-- How JS interacts with HTML and CSS
+- How JS interacts with HTML
+
+- How JS interacts with CSS
 
 ### How jsPsych uses HTML/CSS/JS
 
