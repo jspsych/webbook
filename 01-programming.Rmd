@@ -8,7 +8,13 @@ This chapter won't teach you how to program. However, it should make learning to
 
 When you open a browser and type in the URL of this book (http://book.jspsych.org) lots of things have to happen in order for you to see the website. A connection is established between your computer and another computer that "serves" the website. One or more files are then transferred from the server to your computer. These files include HTML documents, CSS stylesheets, JavaScript files, and media elements like audio files and images. As a developer, your role is to create all of the files that are needed to render the website as you want it.
 
-A crticial point to remember as a new web developer is that it is the job of the web browser to transform this set of files into a website. As a developer, you are providing a (very detailed) "recipe" and the browser is assembling the final dish. Fortunately, browsers are far more precise than chefs and usually websites look the same regardless of which browser is doing the rendering. This is thanks to a commonly agreed upon set of standards that browser developers follow. However, these standards have some ambiguity and as a result there are times when a website will look exactly like you want it to in one browser but not in another.
+A crticial point to remember as a new web developer is that it is the job of the web browser to transform this set of files into a website. As a developer, you are providing a (very detailed) "recipe" and the browser is assembling the final dish. This might seem a bit troubling. If three chefs were given the same recipe the results might be noticably different. Fortunately, browsers are far more precise than chefs and usually websites look the same regardless of which browser is doing the rendering. This is thanks to a commonly agreed upon set of standards that browser developers follow. However, these standards have some ambiguity and as a result there are times when a website will look exactly like you want it to in one browser but not in another.
+
+### "Front end" and "Back end"
+
+
+
+
 
 ## Three languages of the web 
 
