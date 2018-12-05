@@ -173,11 +173,93 @@ This method is a little bit different than the first two, because there is no se
 
 ### JavaScript
 
-- JS as a programming language
+- JS as a programming language, executed by the browser.
+
+- A few key JavaScript ideas:
+- variables
+- objects
+- function
+- operators
+- control statements
+- comments
 
 - How JS interacts with HTML
 
 - How JS interacts with CSS
+
+#### Where does JavaScript go in a document?
+
+Like with CSS, there are several ways to include JavaScript in an `.html` document.
+
+##### `<script>` tag with src attribute
+
+JavaScript can be stored in a separate `.js` file and then loaded into a document using the `<script>` tag.
+
+_code.js_
+```js
+function changeColor(){
+  if(document.querySelector('body').style.backgroundColor == 'white'){
+    document.querySelector('body').style.backgroundColor = 'black';
+  } else {
+    document.querySelector('body').style.backgroundColor = 'white';
+  }
+}
+```
+
+_webpage.html_
+```html
+<head>
+  <script src="code.js"></script>
+</head>
+```
+
+The `src` attribute provides the path to the `.js` file, relative to the location of the `.html` file that contains the `<script>` element. If the `.html` and `.js` files are in the same folder, then the filename alone is sufficient.
+
+The example above creates a function `changeColor()` which will change the `background-color` style rule for the `<body>` element every time it is called. If the current color is `white` then it changes to `black`; otherwise it changes to `white`. This function, once loaded via the `<script>` tag, can be called by other JavaScript code in the HTML document.
+
+##### `<script>` tag with embedded content
+
+The `<script>` tag can also be used without the `src` attribute, placing the JavaScript directly inside the tag instead.
+
+```html
+<head>
+  <script>
+    function changeColor(){
+      if(document.querySelector('body').style.backgroundColor == 'white'){
+        document.querySelector('body').style.backgroundColor = 'black';
+      } else {
+        document.querySelector('body').style.backgroundColor = 'white';
+      }
+    }
+  </script>
+</head>
+```
+
+This has the equivalent effect of the first example. The `<script>` tag does not necessarily need to appear in the `<head>` section. Often the `<script>` tag is placed after the end of the `<body>`, in order to have the content in the `<body>` tag load first. In the minimal HTML document, it would look like this.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A bare-bones HTML document</title>
+  </head>
+  <body>
+  </body>
+  <script>
+    // JavaScript code can be placed here
+  </script>
+</html>
+```
+
+##### In certain attributes
+
+Some HTML attributes support JavaScript code embedded right in the HTML tag declaration. However, this is mostly an outdated approach at this point, and this method is not recommended. It's mentioned here in case you come across it. An example of this approach is the `onclick` attribute of a `<button>` element.
+
+```html
+<button onclick="changeColor();">Click me!</button>
+```
+
+Every time the button is clicked the JavaScript function `changeColor` will be called. This function would be defined in a `<script>` tag elsewhere in the document. The JavaScript code is not limited to calling a single function. In theory, many statements could be executed by the button click, but in practice most programmers find that trying to embed long bits of JavaScript in HTML attributes produces difficult to read code.
 
 ### How jsPsych uses HTML/CSS/JS
 

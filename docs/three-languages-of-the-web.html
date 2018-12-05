@@ -234,10 +234,72 @@ p <span class="kw">{</span> <span class="kw">font-size:</span> <span class="dt">
 <div id="javascript" class="section level3">
 <h3><span class="header-section-number">1.2.3</span> JavaScript</h3>
 <ul>
-<li><p>JS as a programming language</p></li>
+<li><p>JS as a programming language, executed by the browser.</p></li>
+<li>A few key JavaScript ideas:</li>
+<li>variables</li>
+<li>objects</li>
+<li>function</li>
+<li>operators</li>
+<li>control statements</li>
+<li><p>comments</p></li>
 <li><p>How JS interacts with HTML</p></li>
 <li><p>How JS interacts with CSS</p></li>
 </ul>
+<div id="where-does-javascript-go-in-a-document" class="section level4">
+<h4><span class="header-section-number">1.2.3.1</span> Where does JavaScript go in a document?</h4>
+<p>Like with CSS, there are several ways to include JavaScript in an <code>.html</code> document.</p>
+<div id="script-tag-with-src-attribute" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.1</span> <code>&lt;script&gt;</code> tag with src attribute</h5>
+<p>JavaScript can be stored in a separate <code>.js</code> file and then loaded into a document using the <code>&lt;script&gt;</code> tag.</p>
+<p><em>code.js</em></p>
+<div class="sourceCode"><pre class="sourceCode js"><code class="sourceCode javascript"><span class="kw">function</span> <span class="at">changeColor</span>()<span class="op">{</span>
+  <span class="cf">if</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">==</span> <span class="st">&#39;white&#39;</span>)<span class="op">{</span>
+    <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;black&#39;</span><span class="op">;</span>
+  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+    <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;white&#39;</span><span class="op">;</span>
+  <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<p><em>webpage.html</em></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;code.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre></div>
+<p>The <code>src</code> attribute provides the path to the <code>.js</code> file, relative to the location of the <code>.html</code> file that contains the <code>&lt;script&gt;</code> element. If the <code>.html</code> and <code>.js</code> files are in the same folder, then the filename alone is sufficient.</p>
+<p>The example above creates a function <code>changeColor()</code> which will change the <code>background-color</code> style rule for the <code>&lt;body&gt;</code> element every time it is called. If the current color is <code>white</code> then it changes to <code>black</code>; otherwise it changes to <code>white</code>. This function, once loaded via the <code>&lt;script&gt;</code> tag, can be called by other JavaScript code in the HTML document.</p>
+</div>
+<div id="script-tag-with-embedded-content" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.2</span> <code>&lt;script&gt;</code> tag with embedded content</h5>
+<p>The <code>&lt;script&gt;</code> tag can also be used without the <code>src</code> attribute, placing the JavaScript directly inside the tag instead.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;script&gt;</span>
+    <span class="kw">function</span> <span class="at">changeColor</span>()<span class="op">{</span>
+      <span class="cf">if</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">==</span> <span class="st">&#39;white&#39;</span>)<span class="op">{</span>
+        <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;black&#39;</span><span class="op">;</span>
+      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span>
+        <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;white&#39;</span><span class="op">;</span>
+      <span class="op">}</span>
+    <span class="op">}</span>
+  <span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;/head&gt;</span></code></pre></div>
+<p>This has the equivalent effect of the first example. The <code>&lt;script&gt;</code> tag does not necessarily need to appear in the <code>&lt;head&gt;</code> section. Often the <code>&lt;script&gt;</code> tag is placed after the end of the <code>&lt;body&gt;</code>, in order to have the content in the <code>&lt;body&gt;</code> tag load first. In the minimal HTML document, it would look like this.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>A bare-bones HTML document<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+  <span class="kw">&lt;script&gt;</span>
+    <span class="co">// JavaScript code can be placed here</span>
+  <span class="kw">&lt;/script&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+</div>
+<div id="in-certain-attributes" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.3</span> In certain attributes</h5>
+<p>Some HTML attributes support JavaScript code embedded right in the HTML tag declaration. However, this is mostly an outdated approach at this point, and this method is not recommended. It’s mentioned here in case you come across it. An example of this approach is the <code>onclick</code> attribute of a <code>&lt;button&gt;</code> element.</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;button</span><span class="ot"> onclick=</span><span class="st">&quot;changeColor();&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span></code></pre></div>
+<p>Every time the button is clicked the JavaScript function <code>changeColor</code> will be called. This function would be defined in a <code>&lt;script&gt;</code> tag elsewhere in the document. The JavaScript code is not limited to calling a single function. In theory, many statements could be executed by the button click, but in practice most programmers find that trying to embed long bits of JavaScript in HTML attributes produces difficult to read code.</p>
+</div>
+</div>
 </div>
 <div id="how-jspsych-uses-htmlcssjs" class="section level3">
 <h3><span class="header-section-number">1.2.4</span> How jsPsych uses HTML/CSS/JS</h3>
