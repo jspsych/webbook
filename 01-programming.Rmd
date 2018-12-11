@@ -179,19 +179,246 @@ This method is a little bit different than the first two, because there is no se
 
 ### JavaScript
 
-- JS as a programming language, executed by the browser.
+JavaScript is one of the most popular programming languages. Originally created to enable dynamic and interactive content in websites, JavaScript is now used for both websites and general purpose programming. JavaScript is still the dominant language of the web because it is understood by all the major web browsers and is enabled by default.
 
-- A few key JavaScript ideas:
-- variables
-- objects
-- function
-- operators
-- control statements
-- comments
+Some of the things that you can do with JavaScript include:
 
-- How JS interacts with HTML
+- Changing HTML and CSS of a website in response to events. For example, a short JavaScript program make it so that when a user clicks a button an image on the page is changed to a new image. Controlling HTML and CSS will be one of the primary ways in which JavaScript is used when building online experiments.
+- Recording data about how a user interacts with a webpage. JavaScript has access to information like what keys are being pressed on a keyboard and where the mouse is on the screen. It also has access to the time that these events occur.
+- Sending and retrieving data from other applications on the web. For example, JavaScript can communicate with a database to store and access data.
 
-- How JS interacts with CSS
+Learning JavaScript is a much bigger task than learning HTML or CSS, but you don't need to master JavaScript to start using jsPsych. If you learn a few features of the language and understand how JavaScript interacts with HTML and CSS then you'll be able to start programming the experiments in this book.
+
+#### The JavaScript language
+
+##### Comments
+
+In JavaScript, every bit of text is either a _comment_ or _code_. Comments are there only for the benefit of the programmer or anyone else reading the code. They are ignored by the JavaScript engine.
+
+To comment text on a single line, use two forward slashes `//`
+
+```js
+// this is a comment
+```
+
+To comment multiple lines of text, use `/*` at the start and `*/` at the end.
+
+```js
+/*
+this is a comment
+and so is this
+*/
+```
+
+##### Variables
+
+Variables are a way to store information. To store the value `3` in the variable `x`, we can do the following.
+
+```js
+var x = 3;
+```
+
+`var`, short for variable, is how we declare that something is a variable. The `=` sign is called the _assignment operator_. In this case we would say that we are assigning the value `3` to the the variable `x`. In addition to numbers, two other common kinds of values that are assigned to variables are set of characters (called `strings`) and the boolean values `true` and `false`.
+
+Strings are created by placing the set of characters inside either single quotes `' '` or double quotes `" "`. Either one is acceptable, but the starting and ending quote type need to match.
+
+```js
+var my_string = 'hello, reader!';
+
+var are_we_there_yet = false;
+```
+
+Changing the value of a variable that already exists works almost the same as creating a variable, except that you don't need the `var` keyword, because JavaScript already understands that the name refers to a variable. 
+
+```js
+are_we_there_yet = true;
+```
+
+##### Arrays
+
+Arrays allow related data to be stored together in a single variable. 
+
+```js
+var months_of_the_year = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+```
+
+They are created with square brackets `[ ]` and commas separating each value.
+
+Information in an array is accessed by putting the index of the desired position in the array inside the `[ ]`. To get the first item in the array:
+
+```js
+months_of_the_year[0]; // outputs 'January'
+```
+
+Note that array indices begin with 0, not 1. Though sometimes confusing, this is standard practice in most programming languages.
+
+##### Objects
+
+Objects also allow related data to be stored together, but unlike arrays each bit of data in an object is named.
+
+```js
+var person = {
+  name: 'John Doe',
+  age: 35,
+  employed: false
+}
+```
+
+There are two primary ways to access the data stored in an object. 
+
+Dot notation uses a `.` after the variable name.
+
+```js
+person.name; // outputs 'John Doe'
+```
+
+Bracket notation uses square brackets with the name of the property inside the brackets.
+
+```js
+person['name'] // also outputs 'John Doe'
+```
+
+##### Operators
+
+Operators perform assignment, arithmetic, comparison, or logical operations between different values. 
+
+One operator that has already appeared above is the assignment operator, `=`. It takes the value on it's right and stores it in the variable on the left. Values can be assigned to normal variables, arrays, or objects.
+
+```js
+var name = 'Jane';
+
+var person = {};
+person.name = 'Jane';
+
+var people = [];
+people[0] = 'Jane';
+```
+
+Arithmetic operators perform addition, subtraction, multiplication, and division:
+
+```js
+var four = 2 + 2;
+var five = 8 - 3;
+var six = 3 * 2;
+var seven = 21 / 3;
+```
+
+Comparison operators are used to check if two values are equal, or if there is a particular kind of difference between values.
+
+`==` checks for equality
+
+```js
+4 == 5; // false
+
+var four = 4;
+4 == four; // true
+```
+
+`!=` checks for inequality
+
+```js
+4 != 5; // true
+
+var four = 4;
+4 != four; // false
+```
+
+`>` checks if the left value is greater than the right. `>=` checks if the left value is greater than or equal to the value on the right.
+
+```js
+var four = 4;
+4 > four; // false
+4 >= four; // true
+```
+
+`<` checks if the left vaue is less than the right. `<=` checks if the left value is less than or equal to the value on the right.
+
+```js
+var four = 4;
+four < 5; // true
+4 < 3; // false
+```
+
+Logical operators determine whether there is a particular relationship between values.
+
+`&&` checks if the value on the left AND the value on the right are both true.
+
+```js
+true && true; // true
+3 > 2 && 1 == 1; // true
+
+var three = 3;
+var five = 5;
+
+three < 2 && five > 4; // false
+```
+
+`||` checks if the value on the left OR the value on the right is true.
+
+```js
+true || false; // true;
+3 < 2 || 1 != 1; // false;
+
+var three = 3;
+var five = 5;
+
+three < 2 || five > 4; // true;
+```
+
+`!` inverts the truth value of whatever appears on the right.
+
+```js
+!(1 == 1); // false
+!(2 < 1); // true
+
+var x = true;
+!x; // false
+```
+
+##### Functions
+
+Functions, sometimes also called _methods_, are self-contained sets of code that can be invoked through a name given to the function.
+
+```js
+// create a function
+function addTwo(x){
+  return x + 2;
+}
+
+// invoke the function
+addTwo(6); // outputs 8
+```
+
+Functions are created via the `function` keyword. Functions can have 0 or more parameters. In the example above, `addTwo` has one parameter called `x`. This parameter is defined by putting the desired name of the parameter inside the `( )` that occur immediately after the name of the function. Inside the body of the function, the code between the `{ }`, `x` takes on whatever value is used when the function is called. If the function call is `addTwo(6)`, then `x` is 6. If the function call is `addTwo(1)`, `x` is 1. The output of a function is specified by the `return` keyword. In the `addTwo` function, the statement `x + 2` is evaluated and the resulting value is the output of the function. The output can be stored in a variable.
+
+```js
+var output = addTwo(1);
+```
+
+##### Control Statements
+
+
+#### JavaScript + HTML/CSS
+
+JavaScript is the tool that can turn a static website into an interactive one. JavaScript can alter the HTML and CSS of a website, allowing it to indirectly control what appears on the website and how it looks. There are several different approaches for using JavaScript to control the HTML and CSS of a website, and this section only covers a few of the most common.
+
+A powerful JavaScript function is `.querySelector()`. This function works in a similar way to CSS selectors. You can provide a selector, and the function will return the first HTML element that matches the selector. Unlike CSS selectors, with `.querySelector` you have to specify a root element, which is the HTML element that `querySelector` will search in. If you want to search the entire page, you can use the `document` root element.
+
+```html
+
+```
+
+`.querySelector()` selects an HTML element, which can then be modified in a few different ways. One task that you might want to accomplish is to change the content of that element, and one way to accomplish this is to change the `.innerHTML` property of the element.
+
+```html
+
+```
+
+Another task is modifying some aspect of the style of the element. All the style properties of an element can be accessed with `.style` and then the property name. For example, the following code changes the background color of the `<body>` element.
+
+```js
+document.querySelector('body').style.backgroundColor = 'red';
+```
 
 #### Where does JavaScript go in a document?
 
@@ -266,8 +493,6 @@ Some HTML attributes support JavaScript code embedded right in the HTML tag decl
 ```
 
 Every time the button is clicked the JavaScript function `changeColor` will be called. This function would be defined in a `<script>` tag elsewhere in the document. The JavaScript code is not limited to calling a single function. In theory, many statements could be executed by the button click, but in practice most programmers find that trying to embed long bits of JavaScript in HTML attributes produces difficult to read code.
-
-### How jsPsych uses HTML/CSS/JS
 
 ## Publishing a website
 
