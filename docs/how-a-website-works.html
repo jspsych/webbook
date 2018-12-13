@@ -116,6 +116,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.4.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#database-client"><i class="fa fa-check"></i><b>1.4.4</b> Database client</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="2" data-path="the-jspsych-timeline.html"><a href="the-jspsych-timeline.html"><i class="fa fa-check"></i><b>2</b> The jsPsych Timeline</a><ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html"><i class="fa fa-check"></i><b>2.1</b> Setting up your first experiment</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-1.-create-a-folder-for-your-experiment."><i class="fa fa-check"></i><b>2.1.1</b> Step 1. Create a folder for your experiment.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-2.-download-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.2</b> Step 2. Download the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-3.-create-a-new-html-file."><i class="fa fa-check"></i><b>2.1.3</b> Step 3. Create a new HTML file.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-4.-load-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.4</b> Step 4. Load the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.5" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-5.-create-a-welcome-screen."><i class="fa fa-check"></i><b>2.1.5</b> Step 5. Create a welcome screen.</a></li>
+<li class="chapter" data-level="2.1.6" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-6.-create-a-timeline-and-add-the-welcome-screen."><i class="fa fa-check"></i><b>2.1.6</b> Step 6. Create a timeline and add the welcome screen.</a></li>
+<li class="chapter" data-level="2.1.7" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-7.-start-the-experiment"><i class="fa fa-check"></i><b>2.1.7</b> Step 7. Start the experiment!</a></li>
+<li class="chapter" data-level="2.1.8" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#the-completed-experiment."><i class="fa fa-check"></i><b>2.1.8</b> The completed experiment.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="plugins.html"><a href="plugins.html"><i class="fa fa-check"></i><b>2.2</b> Plugins</a></li>
+<li class="chapter" data-level="2.3" data-path="the-timeline.html"><a href="the-timeline.html"><i class="fa fa-check"></i><b>2.3</b> The timeline</a></li>
+<li class="chapter" data-level="2.4" data-path="static-and-dynamic-parameters.html"><a href="static-and-dynamic-parameters.html"><i class="fa fa-check"></i><b>2.4</b> Static and dynamic parameters</a></li>
+<li class="chapter" data-level="2.5" data-path="experiment-the-big-5-personality-inventory.html"><a href="experiment-the-big-5-personality-inventory.html"><i class="fa fa-check"></i><b>2.5</b> Experiment: The Big 5 Personality Inventory</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -139,6 +155,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>A crticial point to remember as a new web developer is that it is the job of the web browser to transform this set of files into a website. As a developer, you are providing a (very detailed) “recipe” and the browser is assembling the final dish. This might seem a bit troubling. If three chefs were given the same recipe the results might be noticably different. Fortunately, browsers are far more precise than chefs and usually websites look the same regardless of which browser is doing the rendering. This is thanks to a commonly agreed upon set of standards that browser developers follow. However, these standards have some ambiguity and as a result there are times when a website will look exactly like you want it to in one browser but not in another.</p>
 <div id="front-end-and-back-end" class="section level3">
 <h3><span class="header-section-number">1.1.1</span> “Front end” and “Back end”</h3>
+<p>Two (or more) computers are involved when a website is requested: The computer that the viewer of the website is using and one or more computers that are serving the website. Programming for the web is conceptually divided based on which of the computers is running the code. If the code is running on the viewer’s computer, it’s <em>front-end</em> development. If it is running on the computer serving the website, it’s <em>back-end</em> development.</p>
+<p>This chapter focuses on <em>front-end</em> web development. This kind of web development focuses on what the viewer of the website sees and how they interact with the website. It involves HTML, CSS, and JavaScript.</p>
+<p><em>Back-end</em> development is focused on programs that run on the computer(s) serving the website. These programs typically handle tasks that require access to data stored on the server. For data-rich websites, most of the programming is back-end focused. There are many programming languages that can be used for back-end development.</p>
+<p>For a typical online experiment, most of the programming is focused on the front end. As researchers, we need to control what the user is seeing or hearing, and how they are interacting with the experiment. These are tasks that are controlled by front-end development. One aspect of back-end programming that experiments do need to handle is data storage. JavaScript (running on the participant’s computer) can record data from an experiment, but in order to store the data on the researcher’s server back-end programming is necessary. Fortunately, these back-end scripts are interchangeable for jsPsych experiments. [Chapter X] provides a sample data saving script that should work for any jsPsych experiment.</p>
 </div>
 </div>
             </section>

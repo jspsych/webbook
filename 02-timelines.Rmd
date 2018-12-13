@@ -1,0 +1,166 @@
+# The jsPsych Timeline
+
+This chapter describes...
+
+## Setting up your first experiment
+
+This section is a mini-tutorial that explains how to setup a very basic jsPsych experiment. The goal is to quickly get an experiment running so that you can see what a complete working experiment involves. Explanations of why certain steps are being taken are deliberately brief, and subsequent sections of this chapter will go into much more detail.
+
+### Step 1. Create a folder for your experiment.
+
+Pick any location on your computer and create a new folder. You can call the folder whatever you like, such as `FirstExperiment`. 
+
+Inside this folder create another folder called `jspsych`. 
+
+### Step 2. Download the jsPsych library.
+
+The jsPsych library is hosted on GitHub at [https://github.com/jspsych/jspsych](https://github.com/jspsych/jspsych). You can download the latest release on the [releases page](https://github.com/jspsych/jsPsych/releases) of the GitHub repository. Under each release you will see three files. Two are `Source Code (zip)` and `Source Code (tar.gz)`. The other begins with `jspsych-` and ends with a version number. At the time of writing, the current release is `v6.0.5` so the file to download is `jspsych-6.0.5.zip`.
+
+Once this file has downloaded, open the ZIP archive and move all of the files to the `jspsych` folder that you created in the previous step.
+
+### Step 3. Create a new HTML file.
+
+Open your coding-friendly text editor of choice (see SECTION 1.XXX if you don't have an editor) and create a new file. In this file, create a [minimal HTML] document using the following code.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+  </body>
+  <script>
+  </script>
+</html>
+```
+
+Save this file as `experiment.html` inside the `FirstExperiment` folder.
+
+### Step 4. Load the jsPsych library.
+
+Recall from SECTION XXX that JavaScript can be loaded from external `.js` files by including a `<script>` tag in the `<head>` section of an HTML document. To load jsPsych, add a `<script>` tag to the `experiment.html` file, with the `src` attribute linking to the `jspsych.js` file in the `jspsych` folder.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+  </head>
+  <body>
+  </body>
+  <script>
+  </script>
+</html>
+```
+
+*something here about folder paths?*
+
+At least one plugin file is required to create an experiment. Load the `html-button-response` plugin by adding a `<script>` tag that points to the `jspsych-html-button-response.js` file in the `jspsych/plugins` folder. 
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+  </head>
+  <body>
+  </body>
+  <script>
+  </script>
+</html>
+```
+
+Note that plugins should always be loaded after the main `jspsych.js` file is loaded.
+
+### Step 5. Create a welcome screen.
+
+This simple experiment will a single screen, welcoming the participant to the experiment. There will be a button that the participant can click to continue (which will end the experiment). 
+
+To create the welcome screen, create a JavaScript object called `welcome`. The object needs a few parameters, shown below. This code can be placed inside the `<script></script>` section of the HTML file.
+
+```js
+var welcome = {
+  type: 'html-keyboard-response',
+  stimulus: 'Welcome to the experiment!',
+  choices: ['Continue']
+}
+```
+
+The `type` parameter tells jsPsych which plugin is being used to construct the trial. In Step 4, you added a `<script>` tag to load the `html-button-response` plugin, and now the plugin is being used to construct this trial.
+
+Each plugin has a set of parameters. Two of the parameters for the `html-button-response` plugin are `stimulus` and `choices`. `stimulus` controls what content is displayed on the screen above the button. The plugin expects the stimulus to be a `string`, which may include HTML tags. `choices` is an `array` of labels for the buttons. In this example, there is a single button with the label `'Continue'`.
+
+
+### Step 6. Create a timeline and add the welcome screen.
+
+A jsPsych experiment is defined by its _timeline_. The timeline is covered in depth later in this chapter. For now, think of the timeline as an ordered list of trials. After a trial is complete, the experiment progresses to the next trial in the timeline.
+
+The jsPsych timeline is created by adding trial objects, like the `welcome` object above, to an array. Create an empty array, and then add the `welcome` object like this.
+
+```js
+var timeline = [];
+
+timeline.push(welcome);
+```
+
+### Step 7. Start the experiment!
+
+Once the timeline is created the experiment can begin. To start the experiment, call the function `jsPsych.init()`. This function takes an object of parameters. The only _required_ parameter is `timeline`. The value of this parameter is the array created in the previous step.
+
+```js
+jsPsych.init({
+  timeline: timeline
+});
+```
+
+### The completed experiment.
+
+Here's what the completed code looks like:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+  </head>
+  <body>
+  </body>
+  <script>
+  
+    var welcome = {
+      type: 'html-keyboard-response',
+      stimulus: 'Welcome to the experiment!',
+      choices: ['Continue']
+    }
+    
+    var timeline = [];
+    
+    timeline.push(welcome);
+    
+    jsPsych.init({
+      timeline: timeline
+    });
+  
+  </script>
+</html>
+```
+
+You can run the experiment by opening the `experiment.html` file with a web browser. The window below shows a running version of the experiment.
+
+## Plugins 
+
+## The timeline
+
+## Static and dynamic parameters
+
+## Experiment: The Big 5 Personality Inventory
+
+Big 5: https://www.ocf.berkeley.edu/~johnlab/bfi.php ?
+Big 5 extra short: http://www.colby.edu/psych/personality-lab/
+
+Lots of choices:
+https://guides.library.uwa.edu.au/c.php?g=783318&p=5612114
+
+Or just basic demographics?

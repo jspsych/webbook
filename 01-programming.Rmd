@@ -12,9 +12,13 @@ A crticial point to remember as a new web developer is that it is the job of the
 
 ### "Front end" and "Back end"
 
+Two (or more) computers are involved when a website is requested: The computer that the viewer of the website is using and one or more computers that are serving the website. Programming for the web is conceptually divided based on which of the computers is running the code. If the code is running on the viewer's computer, it's _front-end_ development. If it is running on the computer serving the website, it's _back-end_ development.
 
+This chapter focuses on _front-end_ web development. This kind of web development focuses on what the viewer of the website sees and how they interact with the website. It involves HTML, CSS, and JavaScript. 
 
+_Back-end_ development is focused on programs that run on the computer(s) serving the website. These programs typically handle tasks that require access to data stored on the server. For data-rich websites, most of the programming is back-end focused. There are many programming languages that can be used for back-end development.
 
+For a typical online experiment, most of the programming is focused on the front end. As researchers, we need to control what the user is seeing or hearing, and how they are interacting with the experiment. These are tasks that are controlled by front-end development. One aspect of back-end programming that experiments do need to handle is data storage. JavaScript (running on the participant's computer) can record data from an experiment, but in order to store the data on the researcher's server back-end programming is necessary. Fortunately, these back-end scripts are interchangeable for jsPsych experiments. [Chapter X] provides a sample data saving script that should work for any jsPsych experiment.
 
 ## Three languages of the web 
 
