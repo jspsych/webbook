@@ -4,7 +4,7 @@ This chapter describes...
 
 ## Setting up your first experiment
 
-This section is a mini-tutorial that explains how to setup a very basic jsPsych experiment. The goal is to quickly get an experiment running so that you can see what a complete working experiment involves. Explanations of why certain steps are being taken are deliberately brief, and subsequent sections of this chapter will go into much more detail.
+This section is a mini-tutorial that explains how to setup a very basic jsPsych experiment. The goal is to quickly get an experiment running so that you can see what a complete working experiment involves. Explanations of why certain steps are being taken are deliberately brief, and subsequent sections of this chapter will go into more detail.
 
 ### Step 1. Create a folder for your experiment.
 
@@ -149,11 +149,34 @@ Here's what the completed code looks like:
 
 You can run the experiment by opening the `experiment.html` file with a web browser. The window below shows a running version of the experiment.
 
-## Plugins 
+## How does a jsPsych experiment work?
 
-## The timeline
+As shown in the previous section, experiments in jsPsych are created by specifying a timeline. Timelines contain a set of ordered trials, and each trial is associated with a particular plugin. When the experiment runs, the core jsPsych code (in `jspsych.js`) parses the timeline and determines what the next trial on the timeline is. The code then calls the plugin, passing it all the parameters specified in the trial object, and the plugin gains control of the experiment. The plugin can then specify what happens on the screen. When the plugin is done, it sends control back to the core jsPsych library to determine what the next trial is and which plugin should have control.
 
-## Static and dynamic parameters
+This section goes into detail about basic features of plugins and timelines. Advanced features are covered in later chapters with experiments that require more complicated timeline and plugin designs.
+
+### Plugins 
+
+Plugins define the basic tasks that are available in a jsPsych experiment. 
+
+- what every plugin does (start, stop, collect data)
+- kinds of plugins
+  - advantages of generic and specific plugins
+- how to use a plugin
+  - docs and syntax
+  - default parameters
+
+### The timeline
+
+- array of trials
+- executed in order
+- how to create a timeline in code (style guide).
+- pointer to advanced features (single paragraph).
+
+### Static and dynamic parameters
+
+- KEY IDEA: most of the code that you are writing runs before the experiment even begins.
+- need simple situation where we want dynamic parameter (but need a few more concepts... so maybe this moves to next chapter, and we do big 5 there. or do it again?
 
 ## Experiment: The Big 5 Personality Inventory
 
