@@ -1,0 +1,12 @@
+# Event-Related Callback Functions
+
+## Experiment: Flanker
+
+Key topics covered:
+- Event-related callback functions 
+- Scoring each response during the task
+- Using dynamic parameters to show feedback after each response
+- Using dynamic parameters to show a performance summary
+
+Other topics covered: 
+- Manipulating the jsPsych data

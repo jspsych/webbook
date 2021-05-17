@@ -1,0 +1,15 @@
+# Timeline variables
+
+
+## Experiment: Paired-Associate Learning
+
+The participant is asked to learn the associations between unrelated items, such as words (e.g. stove - letter). Present each word pair for a fixed duration, with randomized order and repeated presentations. Typically the participant is tested on their memory for the pairs, e.g. by presenting one item from the pair and asking them to recall the other. Skip the test phase? Use a small stimuli set that's written out as a JavaScript array (skip the CSV-to-JSON conversion - this will be covered later).
+
+Key topics covered:
+- Creating a procedure that is repeated over trials with slightly different parameters
+- Repeating over the same set of trial variables 
+- Randomizing the trial order
+
+Other topics covered:
+- Creating instructions pages
+- Creating an end page

@@ -1,0 +1,13 @@
+# Using Media Files: Images, Audio, and Video
+
+## Experiment: Matrix Reasoning
+
+
+Key topics covered:
+- Preloading media files to prevent loading delays during the experiment
+- Embedding images in clickable buttons to create a forced-choice task
+
+Other topics covered:
+- Using CSS to control and modify the visual appearance of stimuli
+
+open access MR stimuli: https://royalsocietypublishing.org/doi/full/10.1098/rsos.190232

@@ -1,0 +1,9 @@
+# Incorporating External JS Libraries
+
+## Experiment: 
+
+- adaptive staircase with jsStaircase
+
+## Experiment: 
+
+- Interactive performance summary graph with Google Charts: https://developers.google.com/chart

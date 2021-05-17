@@ -1,0 +1,11 @@
+# Dynamic Parameters
+
+
+## Experiment: Stroop
+
+Key topics covered:
+- Using dynamic parameters and HTML/CSS to dynamically create the stimuli
+- Using dynamic parameters to show feedback after each response
+
+Other topics covered: 
+- Manipulating the jsPsych data

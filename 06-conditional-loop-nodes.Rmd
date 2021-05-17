@@ -1,0 +1,13 @@
+# Conditional Nodes and Loop Nodes
+
+## Experiment: Semantic Priming
+
+Key topics covered:
+- Using loop nodes to repeat a timeline, based on data collected during the experiment
+- Using conditional nodes to run or skip a timeline, based on data collected during the experiment
+- Combining loop and conditional nodes to repeat a set of practice trials until a minimum performance level is achieved
+
+Other topics covered:
+- Importing trial variables from a CSV file (CSV-to-JSON conversion)
+- Using jsPsych's factorial function to dynamically create a full set of trial variables 
+- Pseudo-randomizing the trial order
