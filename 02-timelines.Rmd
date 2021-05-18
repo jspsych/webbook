@@ -173,7 +173,7 @@ Each plugin has its own documentation page, which describes (1) what the plugin 
 
 You can find an up-to-date list of plugins here: [https://www.jspsych.org/plugins/list-of-plugins/](https://www.jspsych.org/plugins/list-of-plugins/). Often the easiest way to understand what each plugin does is to run its example file. Each plugin has its own example HTML file in the `jspsych/plugins` folder. If you open an example file in your web browser, you will see a live demo of a few basic trials using that plugin. You can also open the HTML file in your text editor to see the code that is used to run the example trials.
 
-One of the great things about plugins is that they can be modified, and you can create your own custom plugins. The official set of jsPsych plugins provide enough flexibilty and breadth to cover an enormous range of possible tasks and experiments. But if your experiment requires something that can't be achieved using existing plugins, you can always opt to modify or create plugins, and therefore still take advantage of the general jsPsych framework for managing the experiment timeline and data. This will be covered in later chapters. 
+One of the great things about plugins is that they can be modified, and you can create your own custom plugins. The official set of jsPsych plugins provide enough flexibilty and breadth to cover an enormous range of possible tasks and experiments. But if your experiment requires something that can't be achieved using existing plugins, you can always opt to modify or create plugins, and therefore still take advantage of the general jsPsych framework for managing the experiment timeline and data. This will be covered in CHAPTER XXX.
 
 #### Using a plugin
 
@@ -221,9 +221,12 @@ var image_trial = {
 - array of trials
 - executed in order
 - how to create a timeline in code (style guide).
+- repeating trials (timeline node with repetitions parameter)
 - pointer to advanced features (single paragraph).
 
 ### Static and dynamic parameters
+
+*Move this to its own chapter?*
 
 In a typical declaration of a jsPsych trial, the parameters values are known at the start of the experiment. These are called _static_ parameters, because the value is known in advance and does not change. This makes it impossible to alter the content or nature of the trial based on things that happen during the experiment. 
 
@@ -261,9 +264,10 @@ In the `feedback` trial example, the code inside the `stimulus` function first c
 
 ## Experiment: The Big 5 Personality Inventory
 
-jsPsych topics covered:
-- Creating survey questions (e.g. multiple choice)
-- Using timeline variables to repeat a trial procedure
+Key topics covered:
+- Defining trials using jsPsych plugins
+- Adding trials to the timeline
+- Running the experiment
 
 Big 5: https://www.ocf.berkeley.edu/~johnlab/bfi.php ?
 Big 5 extra short: http://www.colby.edu/psych/personality-lab/

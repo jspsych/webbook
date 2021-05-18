@@ -1,9 +1,128 @@
-# Timeline variables
+# Timeline Variables
 
+## Timeline Variables
+
+A common pattern in behavioral experiments is to repeat the same procedure many times, but with slightly different parameters across trials. A procedure might be a single trial, but it also might be a series of trials. Often the parameter that changes across trials is the stimulus, and you may also want to save other information to the trial data that varies across trials, such as the condition and correct response. jsPsych provides a short-cut solution to this with timeline variables. Timeline variables allow you define the procedure once (as a timeline) and specify a set of parameters and their values for each iteration through the timeline.
+
+Here is an example of how to use timeline variables. Suppose we want to create an experiment where people see a set of faces. Perhaps this is a memory experiment and this is the phase of the experiment where the faces are being presented for the first time. In between each face, a fixation cross is displayed on the screen. Without timeline variables, we would need to add many separate trials to the timeline, alternating between trials showing the fixation cross and trials showing the face. This could be done efficiently using a loop or function, but timeline variables make it even easier - as well as adding extra features like sampling and randomization.
+
+Here's a basic version of the face presentation task with timeline variables.
+
+```javascript
+var trial_info = [
+    {face: 'person-1.jpg'},
+    {face: 'person-2.jpg'},
+    {face: 'person-3.jpg'},
+    {face: 'person-4.jpg'}
+];
+
+var fixation = {
+    type: 'html-keyboard-response',
+    stimulus: '+',
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 500
+};
+
+var face_trial = {
+    type: 'image-keyboard-response',
+    stimulus: jsPsych.timelineVariable('face'),
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 2500
+};
+
+var face_procedure = {
+	timeline: [fixation, face_trial],
+	timeline_variables: trial_info
+}
+```
+
+Another way to write this same `face_procedure` is to define the `timeline` and `timeline_variables` arrays inside the procedure object itself, rather than defining them as variables and referencing the variable names.
+
+```javascript
+var face_procedure = {
+	timeline: [
+		{
+			type: 'html-keyboard-response',
+			stimulus: '+',
+			choices: jsPsych.NO_KEYS,
+			trial_duration: 500
+		},
+		{
+			type: 'image-keyboard-response',
+			stimulus: jsPsych.timelineVariable('face'),
+			choices: jsPsych.NO_KEYS,
+			trial_duration: 2500
+		}
+	],
+	timeline_variables: [
+		{face: 'person-1.jpg'},
+		{face: 'person-2.jpg'},
+		{face: 'person-3.jpg'},
+		{face: 'person-4.jpg'}
+	]
+}
+```
+
+The two methods for creating the `face_procedure` above do exactly the same thing. It doesn't make any difference which method you use - it's just a matter of personal preference.
+
+The `timeline_variables` parameter is an array that contains one or more objects, where each object contains the information that is specific to a single "trial" (iteration through the timeline). When a procedure object is created that contains a `timeline` and `timeline_variables`, then jsPsych will repeat that timeline once for every object in the `timeline_variables` array. 
+
+The face procedure `timeline` contains a fixation cross presentation for 500ms, followed by an image presentation for 2500ms. This procedure will repeat four times, once for each object in the `timeline_variables` array. The timeline variables are referenced wherever they're needed in the trial parameters. Instead of using a fixed parameter value, if the value should be taken from the timeline variables, then you can call the `jsPsych.timelineVariable()` method and pass in the name of the variable. In this example, the only parameter that changes across trials is the image file that is presented. The image file is stored inside the `timeline_variables` array, in a variable called 'face'. So whenever we want this variable to be used as a trial parameter, we would use `jsPsych.timelineVariable('face')`. Note that the name you use for the variables (e.g. 'face') doesn't matter - you can use whatever names you want for your variables, as long as they are consistent in the `timeline_variables` objects and when they're referenced in the trial parameters with `jsPsych.timelineVariable()`.
+
+What if we wanted the stimuli to be a little more complex, with a name displayed below each face? Let's also add an additional step where the name is displayed for 1 second prior to the face appearing (maybe this is one condition of an experiment investigating whether the order of name-face or face-name affects memory encoding). Here are the changes we need to make:
+
+1. In the `timeline_variables` array, we need to add a name for each image.
+2. In the `timeline` array, we need to add another trial object to show the name on its own, before the face image. Because the name stimulus is text, we can use the html-keyboard-response plugin for this. The `stimulus` parameter should be the name associated with the image for this trial, which is the 'name' variable in the timeline variables objects. So the value of the stimulus parameter is `jsPsych.timelineVariable('name')`. The other parameters will be the same across all trials: a duration of 1000 ms, and no valid key choices.
+3. In the image trial, in addition to using `jsPsych.timelineVariable('face')` as the `stimulus` parameter value, we'll add the `prompt` parameter, which allows you to show HTML-formatted text along with the image. The value of the `prompt` parameter will be that name that corresponds to the image in the timeline variables array: `jsPsych.timelineVariable('name')`.
+
+```javascript
+var face_name_procedure = {
+	timeline: [
+		{
+			type: 'html-keyboard-response',
+			stimulus: '+',
+			choices: jsPsych.NO_KEYS,
+			trial_duration: 500
+		},
+		{
+			type: 'html-keyboard-response',
+			stimulus: jsPsych.timelineVariable('name'),
+			trial_duration: 1000,
+			choices: jsPsych.NO_KEYS
+		},
+		{
+			type: 'image-keyboard-response',
+			stimulus: jsPsych.timelineVariable('face'),
+            prompt: jsPsych.timelineVariable('name'),			
+			choices: jsPsych.NO_KEYS,
+			trial_duration: 2500
+		}
+	],
+	timeline_variables: [
+		{face: 'person-1.jpg', name: 'Alex'},
+		{face: 'person-2.jpg', name: 'Beth'},
+		{face: 'person-3.jpg', name: 'Chad'},
+		{face: 'person-4.jpg', name: 'Dave'}
+	]
+}
+```
+
+## Combining timeline variables and static information
+
+*Example here showing how to incorporate timeline variables and other info in a dynamic parameter? Or save this for separate chapter on dynamic parameters?*
 
 ## Experiment: Paired-Associate Learning
 
-The participant is asked to learn the associations between unrelated items, such as words (e.g. stove - letter). Present each word pair for a fixed duration, with randomized order and repeated presentations. Typically the participant is tested on their memory for the pairs, e.g. by presenting one item from the pair and asking them to recall the other. Skip the test phase? Use a small stimuli set that's written out as a JavaScript array (skip the CSV-to-JSON conversion - this will be covered later).
+The participant is asked to learn the associations between unrelated items, such as words (e.g. stove - letter). Present each word pair for a fixed duration, with randomized order and repeated presentations. Typically the participant is tested on their memory for the pairs, e.g. by presenting one item from the pair and asking them to recall the other. 
+- Skip the test phase? 
+- Use a small stimuli set that's written out as a JavaScript array (skip the CSV-to-JSON conversion - this will be covered later).
+
+Code outline:
+- Instructions 
+- Array with trial variables (word 1 and word 2)
+- Word pair trial
+- Word pair procedure with timeline variables, randomize_order: true, repetitions: N
+- End page
 
 Key topics covered:
 - Creating a procedure that is repeated over trials with slightly different parameters

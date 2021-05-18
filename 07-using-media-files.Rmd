@@ -2,12 +2,20 @@
 
 ## Experiment: Matrix Reasoning
 
+Each trial contains a matrix of shapes, with one cell missing. Below each matrix stimulus is a set of options for the shape that could fill the empty cell in the matrix. The participant must decide which option would correctly fit in the empty cell by examining the relationships across the shapes in the matrix. The participant responds by clicking on a shape option. 
+
+open access MR stimuli: https://royalsocietypublishing.org/doi/full/10.1098/rsos.190232
+
+Code outline:
+- Preload images (matrix and options)
+- Instructions
+- Practice?
+- Main task: timeline variables, randomize_order: false 
+- End
 
 Key topics covered:
 - Preloading media files to prevent loading delays during the experiment
 - Embedding images in clickable buttons to create a forced-choice task
 
 Other topics covered:
-- Using CSS to control and modify the visual appearance of stimuli
-
-open access MR stimuli: https://royalsocietypublishing.org/doi/full/10.1098/rsos.190232
+- Using CSS to control and modify the visual appearance of stimuli (image size, button position)

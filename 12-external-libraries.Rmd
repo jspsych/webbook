@@ -1,9 +1,11 @@
 # Incorporating External JS Libraries
 
-## Experiment: 
+## Experiment: Estimating Visual Perception Thresholds with an Random-Dot Kinematogram (RDK) Task
 
-- adaptive staircase with jsStaircase
+Present RDK trials with an adaptive staircase procedure. Trials begin with a high coherence (easy, close to 1) level, and the coherence level on subsequent trials depends on performance: the task becomes more difficulty after N correct responses, and becomes less difficult after N incorrect responses. This is used to estimate the coherence values that correspond to a particular performance level (e.g. 70% correct responses) for each participant. There are separate adaptive tracks and threshold estimates for two different conditions: low contrast (more similar dot and background colors) and high contrast (less similar colors). 
 
-## Experiment: 
+At the end of the task, a performance chart is shown with the conherence values across trials for the two conditions (low and high contrast).
 
-- Interactive performance summary graph with Google Charts: https://developers.google.com/chart
+Key topics:
+- Using an adaptive staircase procedure with the jsStaircase library
+- Adding an interactive performance summary graph with Google Charts: https://developers.google.com/chart
