@@ -111,6 +111,29 @@ var face_name_procedure = {
 
 *Example here showing how to incorporate timeline variables and other info in a dynamic parameter? Or save this for separate chapter on dynamic parameters?*
 
+## Experiment: The Big 5 Personality Inventory
+
+Big 5: https://www.ocf.berkeley.edu/~johnlab/bfi.php ?
+Big 5 extra short: http://www.colby.edu/psych/personality-lab/
+
+Lots of choices:
+https://guides.library.uwa.edu.au/c.php?g=783318&p=5612114
+
+Code outline:
+- Welcome
+- Create array of questions
+- Create likert scale
+- Survey likert trial to show question and scale
+- Questionnaire procedure using timeline variables
+- End page
+
+Key topics covered:
+- Creating a procedure that is repeated over trials with slightly different parameters
+
+Other topics covered:
+- Creating a welcome page
+- Creating an end page
+
 ## Experiment: Paired-Associate Learning
 
 The participant is asked to learn the associations between unrelated items, such as words (e.g. stove - letter). Present each word pair for a fixed duration, with randomized order and repeated presentations. Typically the participant is tested on their memory for the pairs, e.g. by presenting one item from the pair and asking them to recall the other. 

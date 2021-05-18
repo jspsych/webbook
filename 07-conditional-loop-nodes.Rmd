@@ -6,6 +6,8 @@ Quick examples:
 - Conditional 'please respond faster' message
 - Loop over missed/wrong trials?
 
+Note that when loops and conditionals are used, the number of rows in the data may not be the same across participants. The data is only saved from the trials that actually run, so some participants may have more/fewer rows in their data, depending on whether conditionals ran, and how many times a loop repeated.
+
 ## Experiment: Lexical Decision with Semantic Priming
 
 This is a variant of the lexical decision task, in which participants are shown pairs of words. One word is shown briefly, followed by another. The participant must decide as quickly as possible whether or not the second word is a real word. 
@@ -28,10 +30,19 @@ Key topics covered:
 - Combining loop and conditional nodes to repeat a set of practice trials until a minimum performance level is achieved
 
 Other topics covered:
-- Importing trial variables from a CSV file (CSV-to-JSON conversion)
+- Importing trial variables from a CSV file (CSV-to-JSON conversion) - *Could pull the CSV/JSON conversion out of this chapter, but this doesn't seem like a big enough thing to warrant its own chapter. Maybe an appendix?*
 - Using JavaScript and jsPsych functions to dynamically create the full set of trial information 
 - Pseudo-randomizing the trial order (shuffle trials with no repeats of the same prime word)
+- jsPsych data manipulation
 
 ## Experiment: Digit Span 
 
 Visual digit span with stop rule: 3 trials per list length, loop over list lengths, and repeat if at least one correct response out of the last 3 trials, otherwise stop the task
+
+Code outline:
+- Instructions
+- Create or read in the digit sequences (3 trials per list length, from 3 to 12 digits)
+- Digit presentation trial
+- Either nested timeline (3 trials per list length, with 10 list lengths), or non-nested timeline (just the digit presentation trial)?
+- Loop over digit presentation trial(s), after the 3rd trial for each list length, check to see if at least one correct response from last 3 trials - either continue or stop
+- End screen

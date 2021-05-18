@@ -1,0 +1,41 @@
+# Working with jsPsych data
+
+When working with data, we want to access the data _after_ it's been collected. That is, the code that is used to access the data must run during the experiment or after it has finished, rather than when the page first loads. This means that we cannot access data in our main experiment script, because that code will run immediately when the page first loads, and there is no data at that point. (Example with code?) Instead, the code to access the data must go inside of a parameter function that is called at a specific point during the experiment, or after the experiment has finished. This chapter does not include a detailed explanation of the way that these parameter functions work, because this chapter is focused on the structure of jsPsych data and the tools that jsPsych provides for working with data. Throughout this chapter, you can simply ignore the fact that the data functions are placed inside of parameter functions, as this will be covered in CHAPTER XXX and CHAPTER XXX. 
+
+## The Structure of jsPsych Data
+
+- JavaScript array of objects, more flexible than tabular (e.g. CSV data)
+- Each object in the array contains data from a single trial (plugin), in chronological order as the trials were presented during the experiment
+- The objects do not need to contain the same properties (columns/variables) - the type of data included in each trial will depend on the plugin that was used
+- There are is some data that is collected by all plugins (trial_type, trial_index, etc.) 
+- Very simple example with a few trials, and one or two different plugins
+- Annotated screenshots of JSON- and CSV-formatted data, in browser and files
+
+## Displaying the Data in the Browser
+
+- displayData function, JSON and CSV options
+- Example
+
+## Saving the Data Locally
+
+- localSave function, JSON and CSV options
+- Example
+
+## Saving the Data to a server
+
+- Beyond the scope of this book, but maybe add a few examples?
+
+## Working with Data During the Experiment
+
+- jsPsych.data.get() function, and briefly mention similar functions (getLastTimelineData, getLastTrialData)
+- Functions for working with data collections, with basic examples
+- Accessing responses from the trial data: need to know the format of the data for that trial, since the trial data properties and structure differ depending on the plugin - see plugin docs
+- Basic example of accessing responses
+- Using the trial's data parameter to add flags for easier filtering
+- Basic example of adding flags and filtering on those flags
+
+## Experiment:
+
+*Need something simple that requires the use of the participant's previous responses/data.*
+
+- Also reference experiments from other chapters that include data manipulation

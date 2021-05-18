@@ -14,5 +14,5 @@ Key topics covered:
 
 Other topics covered: 
 - Manipulating the jsPsych data
-- Using dynamic parameters to show feedback after each response
-- Using dynamic parameters to show a performance summary
+- Using dynamic parameters (stimulus) to show feedback after each response
+- Using dynamic parameters (stimulus) to show a performance summary

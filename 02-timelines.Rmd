@@ -262,17 +262,9 @@ In the `feedback` trial example, the code inside the `stimulus` function first c
 - KEY IDEA: most of the code that you are writing runs before the experiment even begins.
 - need simple situation where we want dynamic parameter (but need a few more concepts... so maybe this moves to next chapter, and we do big 5 there. or do it again?
 
-## Experiment: The Big 5 Personality Inventory
+## Experiment: Demographics questionnaire
 
 Key topics covered:
 - Defining trials using jsPsych plugins
 - Adding trials to the timeline
 - Running the experiment
-
-Big 5: https://www.ocf.berkeley.edu/~johnlab/bfi.php ?
-Big 5 extra short: http://www.colby.edu/psych/personality-lab/
-
-Lots of choices:
-https://guides.library.uwa.edu.au/c.php?g=783318&p=5612114
-
-Or just basic demographics?
