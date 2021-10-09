@@ -1,0 +1,6 @@
+# Randomization and Sampling
+
+
+## Experiment:
+
+- Something with fairly complex randomization and/or sampling, e.g. blocks with a specific number of trials per condition, but random trial-to-block assignment, and trials randomized within blocks. Maybe some other constraint, like no more than N repeats of a condition within a block?

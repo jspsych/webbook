@@ -1,0 +1,48 @@
+# Conditional Nodes and Loop Nodes
+
+*Add visual representation of conditionals and loops using a decision tree/flow chart structure*
+
+Quick examples:
+- Conditional 'please respond faster' message
+- Loop over missed/wrong trials?
+
+Note that when loops and conditionals are used, the number of rows in the data may not be the same across participants. The data is only saved from the trials that actually run, so some participants may have more/fewer rows in their data, depending on whether conditionals ran, and how many times a loop repeated.
+
+## Experiment: Lexical Decision with Semantic Priming
+
+This is a variant of the lexical decision task, in which participants are shown pairs of words. One word is shown briefly, followed by another. The participant must decide as quickly as possible whether or not the second word is a real word. 
+The key manipulation is the semantic relationship between the first and second word in each pair (word trials only). The stimuli are a set of ambiguous word primes (e.g. bark) that are paired with (1) a subordinate-related (e.g. tree), (2) dominant-related (e.g. dog), (3) unrelated (e.g. cap), or (4) non-word target.
+In this experiment, we will include a set of practice trials before the main task. In order to ensure that participants understand the instructions before starting the main task, they will need to respond correctly to at least 4 out of the 5 practice trials. If they make 3 or fewer correct responses during the practice phase, they will be shown a message indicating that they will need to repeat the practice, along with a reminder about the instructions.
+
+Code outline:
+- Instructions
+- Arrays of practice and main task trial variables - convert from CSV to JSON, read in head as JS files
+- Dynamically create timeline variable arrays from stimuli info (factorial function, etc.)
+- Create practice trial procedure
+- Loop node that checks practice trial performance
+- Conditional node with message: You must repeat the practice
+- Main task
+- End screen
+
+Key topics covered:
+- Using loop nodes to repeat a timeline, based on data collected during the experiment
+- Using conditional nodes to run or skip a timeline, based on data collected during the experiment
+- Combining loop and conditional nodes to repeat a set of practice trials until a minimum performance level is achieved
+
+Other topics covered:
+- Importing trial variables from a CSV file (CSV-to-JSON conversion) - *Could pull the CSV/JSON conversion out of this chapter, but this doesn't seem like a big enough thing to warrant its own chapter. Maybe an appendix?*
+- Using JavaScript and jsPsych functions to dynamically create the full set of trial information 
+- Pseudo-randomizing the trial order (shuffle trials with no repeats of the same prime word)
+- jsPsych data manipulation
+
+## Experiment: Digit Span 
+
+Visual digit span with stop rule: 3 trials per list length, loop over list lengths, and repeat if at least one correct response out of the last 3 trials, otherwise stop the task
+
+Code outline:
+- Instructions
+- Create or read in the digit sequences (3 trials per list length, from 3 to 12 digits)
+- Digit presentation trial
+- Either nested timeline (3 trials per list length, with 10 list lengths), or non-nested timeline (just the digit presentation trial)?
+- Loop over digit presentation trial(s), after the 3rd trial for each list length, check to see if at least one correct response from last 3 trials - either continue or stop
+- End screen

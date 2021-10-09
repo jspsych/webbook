@@ -1,0 +1,5 @@
+# Controlling Visual Appearance 
+
+## Experiment
+
+- Would be nice to have an experiment here that depends critically on CSS, e.g. where relative position of elements on the page (images, buttons, etc.) is part of the experimental manipulation. Or maybe a manipulation that involves the element's style, like size/color.

@@ -1,0 +1,20 @@
+# Dynamic Parameters
+
+
+## Experiment: Stroop
+
+Code outline:
+- Instructions
+- Array of trial variables: word/color combinations (create dynamically or hard-code?)
+- Stroop trial 
+    - dynamic stimuli parameter that combines word and color info from timeline variables into HTML string
+- Feedback trial
+    - dynamic stimuli parameter that checks accuracy of previous trial, and shows correct/incorrect text
+- Stroop procedure: stroop and feedback, with timeline variables
+- End page
+
+Key topics covered:
+- Using dynamic parameters and HTML/CSS to dynamically create the stimuli
+
+Other topics covered: 
+- Manipulating the jsPsych data

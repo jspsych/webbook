@@ -34,7 +34,7 @@ Open your coding-friendly text editor of choice (see SECTION 1.XXX if you don't 
 </html>
 ```
 
-Save this file as `experiment.html` inside the `FirstExperiment` folder.
+Save this file as `experiment.html` inside the `FirstExperiment` folder. **image or outline of directory structure here?**
 
 ### Step 4. Load the jsPsych library.
 
@@ -53,7 +53,11 @@ Recall from SECTION XXX that JavaScript can be loaded from external `.js` files 
 </html>
 ```
 
-*something here about folder paths?*
+```{block2, type='rmdcaution'}
+A few things to be aware of when loading files in your experiment. 
+1. Make sure that the file paths in your HTML file match the exact names and locations of your files, including the letter capitalization (lowercase vs uppercase). 
+2. The file paths in your HTML file are relative to the location of your HTML file. The example above assumes that this HTML file is located in the top level of your main experiment directory, and that this directory also includes a folder called 'jspsych', which contains all of the jspsych files. If this is not the directory struture that you're using, then you will need to modify the file paths in your HTML file accordingly.
+```
 
 At least one plugin file is required to create an experiment. Load the `html-button-response` plugin by adding a `<script>` tag that points to the `jspsych-html-button-response.js` file in the `jspsych/plugins` folder. 
 
@@ -75,13 +79,13 @@ Note that plugins should always be loaded after the main `jspsych.js` file is lo
 
 ### Step 5. Create a welcome screen.
 
-This simple experiment will a single screen, welcoming the participant to the experiment. There will be a button that the participant can click to continue (which will end the experiment). 
+This simple experiment will show a single screen, welcoming the participant to the experiment. There will be a button that the participant can click to continue (which will end the experiment). 
 
-To create the welcome screen, create a JavaScript object called `welcome`. The object needs a few parameters, shown below. This code can be placed inside the `<script></script>` section of the HTML file.
+To create the welcome screen, create a JavaScript object called `welcome`. The object needs a few parameters, shown below. This code should be placed inside the `<script></script>` section of the HTML file.
 
 ```js
 var welcome = {
-  type: 'html-keyboard-response',
+  type: 'html-button-response',
   stimulus: 'Welcome to the experiment!',
   choices: ['Continue']
 }
@@ -89,14 +93,14 @@ var welcome = {
 
 The `type` parameter tells jsPsych which plugin is being used to construct the trial. In Step 4, you added a `<script>` tag to load the `html-button-response` plugin, and now the plugin is being used to construct this trial.
 
-Each plugin has a set of parameters. Two of the parameters for the `html-button-response` plugin are `stimulus` and `choices`. `stimulus` controls what content is displayed on the screen above the button. The plugin expects the stimulus to be a `string`, which may include HTML tags. `choices` is an `array` of labels for the buttons. In this example, there is a single button with the label `'Continue'`.
+Each plugin has a set of parameters. Two of the parameters for the `html-button-response` plugin are `stimulus` and `choices`. `stimulus` controls what content is displayed on the screen above the button. The plugin expects the stimulus to be a `string`, which may include HTML tags. `choices` is an `array` of labels for one or more buttons. In this example, there is a single button with the label `'Continue'`.
 
 
 ### Step 6. Create a timeline and add the welcome screen.
 
 A jsPsych experiment is defined by its _timeline_. The timeline is covered in depth later in this chapter. For now, think of the timeline as an ordered list of trials. After a trial is complete, the experiment progresses to the next trial in the timeline.
 
-The jsPsych timeline is created by adding trial objects, like the `welcome` object above, to an array. Create an empty array, and then add the `welcome` object like this.
+The jsPsych timeline is created by adding trial objects, like the `welcome` object above, to an array. After the code above that defines the `welcome` trial, create an empty array called `timeline`, and then add the `welcome` object into the `timeline` array like this:
 
 ```js
 var timeline = [];
@@ -106,7 +110,7 @@ timeline.push(welcome);
 
 ### Step 7. Start the experiment!
 
-Once the timeline is created the experiment can begin. To start the experiment, call the function `jsPsych.init()`. This function takes an object of parameters. The only _required_ parameter is `timeline`. The value of this parameter is the array created in the previous step.
+Once you've created a timeline array that contains one or more trials, you can run the experiment. To start the experiment, call the function `jsPsych.init()`. This function takes an object of parameters. The only _required_ parameter is `timeline`. The value of this parameter is the array of trials that you created in the previous step.
 
 ```js
 jsPsych.init({
@@ -116,7 +120,7 @@ jsPsych.init({
 
 ### The completed experiment.
 
-Here's what the completed code looks like:
+Here's what the completed HTML file looks like:
 
 ```html
 <!DOCTYPE html>
@@ -130,7 +134,7 @@ Here's what the completed code looks like:
   <script>
   
     var welcome = {
-      type: 'html-keyboard-response',
+      type: 'html-button-response',
       stimulus: 'Welcome to the experiment!',
       choices: ['Continue']
     }
@@ -149,15 +153,61 @@ Here's what the completed code looks like:
 
 You can run the experiment by opening the `experiment.html` file with a web browser. The window below shows a running version of the experiment.
 
+*Add live demo here*
+
 ## How does a jsPsych experiment work?
 
-As shown in the previous section, experiments in jsPsych are created by specifying a timeline. Timelines contain a set of ordered trials, and each trial is associated with a particular plugin. When the experiment runs, the core jsPsych code (in `jspsych.js`) parses the timeline and determines what the next trial on the timeline is. The code then calls the plugin, passing it all the parameters specified in the trial object, and the plugin gains control of the experiment. The plugin can then specify what happens on the screen. When the plugin is done, it sends control back to the core jsPsych library to determine what the next trial is and which plugin should have control.
+As shown in the previous section, experiments in jsPsych are created by specifying a timeline. Timelines contain a set of ordered trials, and each trial is associated with a particular plugin. When the experiment runs, the core jsPsych code (in `jspsych.js`) parses the timeline to determine what trials should run during the experiment. The jsPsych code then calls the plugin for the first trial, passing it all the parameters specified in the trial object, and the plugin gains control of the experiment. The plugin then specifies what happens during the trial, including the presentation of any stimuli and collection of responses. When the trial is done, the plugin sends control back to the core jsPsych library to determine what the next trial is, and which plugin should have control next. This continues until all of the trials in the timeline array have finished.
+
+*add some kind of a visual representation of a timeline of trials?*
 
 This section goes into detail about basic features of plugins and timelines. Advanced features are covered in later chapters with experiments that require more complicated timeline and plugin designs.
 
 ### Plugins 
 
-Plugins define the basic tasks that are available in a jsPsych experiment. 
+Plugins define a basic framework for trials, tasks, or events that can be used in a jsPsych experiment. Some plugins define very general events, like displaying text and recording a keyboard response, or playing a sound file and recording a button response. Other plugins are more specific, like those that display particular kinds of stimuli (e.g. Random-Dot Kinematogram, visual search circle), or run a specific version of particular kind of task (e.g. the Implicit Association Test). Creating an experiment with jsPsych involves figuring out which plugins are needed to create the tasks you want your participants to perform.
+
+Plugins provide a basic structure for running a particular trial and collecting a response, but they generally allow for significant customization and flexibility through the use of parameters. For example, the `image-keyboard-response` plugin defines a simple structure for showing an image and collecting a keyboard response. You can specify the what the stimulus is, what keys the subject is allowed to press, and how long the stimulus should be on the screen, how long the subject has to respond, and so on. Many of these options have reasonable default values; even though the image plugin has many different parameters, you only *need* to specify the image stimulus in order to use it. 
+
+Each plugin has its own documentation page, which describes (1) what the plugin does, (2) what parameters (options) are available (including whether the parameter is required or optional, and what its default value is), and (3) what kind of data the plugin collects. The plugin documentation pages can be found in the "Plugins" section of the [jsPsych website](https://www.jspsych.org/).
+
+You can find an up-to-date list of plugins here: [https://www.jspsych.org/plugins/list-of-plugins/](https://www.jspsych.org/plugins/list-of-plugins/). Often the easiest way to understand what each plugin does is to run its example file. Each plugin has its own example HTML file in the `jspsych/plugins` folder. If you open an example file in your web browser, you will see a live demo of a few basic trials using that plugin. You can also open the HTML file in your text editor to see the code that is used to run the example trials.
+
+One of the great things about plugins is that they can be modified, and you can create your own custom plugins. The official set of jsPsych plugins provide enough flexibilty and breadth to cover an enormous range of possible tasks and experiments. But if your experiment requires something that can't be achieved using existing plugins, you can always opt to modify or create plugins, and therefore still take advantage of the general jsPsych framework for managing the experiment timeline and data. This will be covered in CHAPTER XXX.
+
+#### Using a plugin
+
+To use a plugin, you'll need to load the plugin's JavaScript file in your experiment's HTML page. All jsPsych experiments also need to load the "jspsych.js" file before any plugin files.
+
+```html
+<head>
+  <script src="jspsych/jspsych.js" type="text/javascript"></script>
+  <script src="jspsych/plugins/jspsych-image-keyboard-response.js" type="text/javascript"></script>
+</head>
+```
+
+Once a plugin is loaded, you can define a trial that uses that plugin. All jsPsych trials must have a `type`, which tells jsPsych what plugin to use to run the trial. The trial's `type` is the plugin name, which usually the same as the plugin file name, but without the "jspsych-" prefix.
+
+The following JavaScript code defines a trial using the `image-keyboard-response` plugin to display an image file. This trial uses the default values for all of the other parameters, such as the valid key choices, stimulus duration, and trial duration. 
+
+```js
+var image_trial = {
+	type: 'image-keyboard-response', 
+	stimulus: 'images/happy_face.jpg'
+}
+```
+
+You can override any default parameter values by adding them into your trial object. Here's an exampe of overriding the default values for `trial_duration`, `choices`, and `post_trial_gap`. Unlike the previous example trial, this trial will only accept the "h" and "s" keys as valid responses (`choices` parameter), and it will automatically end after 3 seconds if no valid response is made before then (`trial_duration` parameter). There will be a 2 second delay between the end of this trial and the start of the next one (`post_trial_gap` parameter).
+
+```js
+var image_trial = {
+  type: 'image-keyboard-response',
+  stimulus: 'images/happy_face.jpg',
+  trial_duration: 3000,
+  choices: ['h','s'],
+  post_trial_gap: 2000
+}
+```
 
 - what every plugin does (start, stop, collect data)
 - kinds of plugins
@@ -171,19 +221,50 @@ Plugins define the basic tasks that are available in a jsPsych experiment.
 - array of trials
 - executed in order
 - how to create a timeline in code (style guide).
+- repeating trials (timeline node with repetitions parameter)
 - pointer to advanced features (single paragraph).
 
 ### Static and dynamic parameters
 
+*Move this to its own chapter?*
+
+In a typical declaration of a jsPsych trial, the parameters values are known at the start of the experiment. These are called _static_ parameters, because the value is known in advance and does not change. This makes it impossible to alter the content or nature of the trial based on things that happen during the experiment. 
+
+However, most trial parameters can also be specified as _functions_. When functions are used as the parameter value, the function is evaluated during the experiment, right before the trial starts, and the return value of the function is used as the parameter value for that trial. This enables dynamic updating of trial parameters based on data that a subject has generated, or any other information that you do not know before the experiment has started.
+
+Below is a sketch of how this can be used to display feedback about a participant's response. This `feedback` trial uses the `html-keyboard-response` plugin to display text to the participant indicating whether their response in the last trial was correct or incorrect. 
+
+```js
+var feedback = {
+  type: 'html-keyboard-response',
+  stimulus: function(){
+    var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
+    if (last_trial_correct) {
+      return "Correct!"; 
+    } else {
+      return "Wrong."; 
+    }
+  },
+  choices: jsPsych.NO_KEYS
+}
+```
+
+It's fine if you don't understand exactly what this code is doing - some of this will be explained in later chapters. The important thing to note here is that the `stimulus` parameter isn't a normal text string, like we've seen in previous example trials. Instead, it's a function, which uses the syntax `function() { }`. When functions are used as trial parameters, they will be typically written like this:
+
+```js
+stimulus: function() {
+  // code here...
+}
+```
+
+In the `feedback` trial example, the code inside the `stimulus` function first checks whether the last response was correct or incorrect, and then uses that information to return one of two different text strings: "Correct! if the response was correct, or "Wrong." if it was incorrect. The `return` keyword is used to return a value from a function.
+
 - KEY IDEA: most of the code that you are writing runs before the experiment even begins.
 - need simple situation where we want dynamic parameter (but need a few more concepts... so maybe this moves to next chapter, and we do big 5 there. or do it again?
 
-## Experiment: The Big 5 Personality Inventory
+## Experiment: Demographics questionnaire
 
-Big 5: https://www.ocf.berkeley.edu/~johnlab/bfi.php ?
-Big 5 extra short: http://www.colby.edu/psych/personality-lab/
-
-Lots of choices:
-https://guides.library.uwa.edu.au/c.php?g=783318&p=5612114
-
-Or just basic demographics?
+Key topics covered:
+- Defining trials using jsPsych plugins
+- Adding trials to the timeline
+- Running the experiment

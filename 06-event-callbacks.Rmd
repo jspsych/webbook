@@ -1,0 +1,18 @@
+# Event-Related Callback Functions
+
+## Experiment: Flanker
+
+Code outline:
+- Create flanker task with timeline variables
+- Use trial's on_finish function to score each response
+- Show correct/incorrect feedback after each response
+- Show performance summary at the end
+
+Key topics covered:
+- Event-related callback functions 
+- Scoring each response during the task
+
+Other topics covered: 
+- Manipulating the jsPsych data
+- Using dynamic parameters (stimulus) to show feedback after each response
+- Using dynamic parameters (stimulus) to show a performance summary

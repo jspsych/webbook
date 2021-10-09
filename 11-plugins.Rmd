@@ -1,0 +1,6 @@
+# Modifying and Creating Plugins
+
+## Experiment:
+
+- Self-paced reading with moving window?
+- Combine stimulus and response types that already don't exist in a plugin, e.g. audio with free-text or multiple choice response?
