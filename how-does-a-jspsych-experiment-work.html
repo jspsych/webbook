@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.2 How does a jsPsych experiment work? | Online Behavioral Experiments with jsPsych</title>
+  <meta name="description" content="2.2 How does a jsPsych experiment work? | Online Behavioral Experiments with jsPsych" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.2 How does a jsPsych experiment work? | Online Behavioral Experiments with jsPsych" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.2 How does a jsPsych experiment work? | Online Behavioral Experiments with jsPsych" />
+  
+  
+  
+
+<meta name="author" content="Joshua R. de Leeuw" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="setting-up-your-first-experiment.html"/>
+<link rel="next" href="experiment-demographics-questionnaire.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="programming-for-the-web.html"><a href="programming-for-the-web.html"><i class="fa fa-check"></i><b>1</b> Programming for the Web</a><ul>
+<li class="chapter" data-level="1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html"><i class="fa fa-check"></i><b>1.1</b> How a website works</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html#front-end-and-back-end"><i class="fa fa-check"></i><b>1.1.1</b> “Front end” and “Back end”</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html"><i class="fa fa-check"></i><b>1.2</b> Three languages of the web</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#html"><i class="fa fa-check"></i><b>1.2.1</b> HTML</a></li>
+<li class="chapter" data-level="1.2.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#css"><i class="fa fa-check"></i><b>1.2.2</b> CSS</a></li>
+<li class="chapter" data-level="1.2.3" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#javascript"><i class="fa fa-check"></i><b>1.2.3</b> JavaScript</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="publishing-a-website.html"><a href="publishing-a-website.html"><i class="fa fa-check"></i><b>1.3</b> Publishing a website</a></li>
+<li class="chapter" data-level="1.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html"><i class="fa fa-check"></i><b>1.4</b> Tools for web development</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#editor"><i class="fa fa-check"></i><b>1.4.1</b> Editor</a></li>
+<li class="chapter" data-level="1.4.2" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#browser-developer-tools"><i class="fa fa-check"></i><b>1.4.2</b> Browser developer tools</a></li>
+<li class="chapter" data-level="1.4.3" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#sftp-client"><i class="fa fa-check"></i><b>1.4.3</b> SFTP client</a></li>
+<li class="chapter" data-level="1.4.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#database-client"><i class="fa fa-check"></i><b>1.4.4</b> Database client</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-jspsych-timeline.html"><a href="the-jspsych-timeline.html"><i class="fa fa-check"></i><b>2</b> The jsPsych Timeline</a><ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html"><i class="fa fa-check"></i><b>2.1</b> Setting up your first experiment</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-1.-create-a-folder-for-your-experiment."><i class="fa fa-check"></i><b>2.1.1</b> Step 1. Create a folder for your experiment.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-2.-download-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.2</b> Step 2. Download the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-3.-create-a-new-html-file."><i class="fa fa-check"></i><b>2.1.3</b> Step 3. Create a new HTML file.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-4.-load-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.4</b> Step 4. Load the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.5" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-5.-create-a-welcome-screen."><i class="fa fa-check"></i><b>2.1.5</b> Step 5. Create a welcome screen.</a></li>
+<li class="chapter" data-level="2.1.6" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-6.-create-a-timeline-and-add-the-welcome-screen."><i class="fa fa-check"></i><b>2.1.6</b> Step 6. Create a timeline and add the welcome screen.</a></li>
+<li class="chapter" data-level="2.1.7" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-7.-start-the-experiment"><i class="fa fa-check"></i><b>2.1.7</b> Step 7. Start the experiment!</a></li>
+<li class="chapter" data-level="2.1.8" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#the-completed-experiment."><i class="fa fa-check"></i><b>2.1.8</b> The completed experiment.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html"><i class="fa fa-check"></i><b>2.2</b> How does a jsPsych experiment work?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#plugins"><i class="fa fa-check"></i><b>2.2.1</b> Plugins</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#the-timeline"><i class="fa fa-check"></i><b>2.2.2</b> The timeline</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#static-and-dynamic-parameters"><i class="fa fa-check"></i><b>2.2.3</b> Static and dynamic parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="experiment-demographics-questionnaire.html"><a href="experiment-demographics-questionnaire.html"><i class="fa fa-check"></i><b>2.3</b> Experiment: Demographics questionnaire</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="timeline-variables.html"><a href="timeline-variables.html"><i class="fa fa-check"></i><b>3</b> Timeline Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="timeline-variables-1.html"><a href="timeline-variables-1.html"><i class="fa fa-check"></i><b>3.1</b> Timeline Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="combining-timeline-variables-and-static-information.html"><a href="combining-timeline-variables-and-static-information.html"><i class="fa fa-check"></i><b>3.2</b> Combining timeline variables and static information</a></li>
+<li class="chapter" data-level="3.3" data-path="experiment-the-big-5-personality-inventory.html"><a href="experiment-the-big-5-personality-inventory.html"><i class="fa fa-check"></i><b>3.3</b> Experiment: The Big 5 Personality Inventory</a></li>
+<li class="chapter" data-level="3.4" data-path="experiment-paired-associate-learning.html"><a href="experiment-paired-associate-learning.html"><i class="fa fa-check"></i><b>3.4</b> Experiment: Paired-Associate Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="working-with-jspsych-data.html"><a href="working-with-jspsych-data.html"><i class="fa fa-check"></i><b>4</b> Working with jsPsych data</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-structure-of-jspsych-data.html"><a href="the-structure-of-jspsych-data.html"><i class="fa fa-check"></i><b>4.1</b> The Structure of jsPsych Data</a></li>
+<li class="chapter" data-level="4.2" data-path="displaying-the-data-in-the-browser.html"><a href="displaying-the-data-in-the-browser.html"><i class="fa fa-check"></i><b>4.2</b> Displaying the Data in the Browser</a></li>
+<li class="chapter" data-level="4.3" data-path="saving-the-data-locally.html"><a href="saving-the-data-locally.html"><i class="fa fa-check"></i><b>4.3</b> Saving the Data Locally</a></li>
+<li class="chapter" data-level="4.4" data-path="saving-the-data-to-a-server.html"><a href="saving-the-data-to-a-server.html"><i class="fa fa-check"></i><b>4.4</b> Saving the Data to a server</a></li>
+<li class="chapter" data-level="4.5" data-path="working-with-data-during-the-experiment.html"><a href="working-with-data-during-the-experiment.html"><i class="fa fa-check"></i><b>4.5</b> Working with Data During the Experiment</a></li>
+<li class="chapter" data-level="4.6" data-path="experiment.html"><a href="experiment.html"><i class="fa fa-check"></i><b>4.6</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dynamic-parameters.html"><a href="dynamic-parameters.html"><i class="fa fa-check"></i><b>5</b> Dynamic Parameters</a><ul>
+<li class="chapter" data-level="5.1" data-path="experiment-stroop.html"><a href="experiment-stroop.html"><i class="fa fa-check"></i><b>5.1</b> Experiment: Stroop</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="event-related-callback-functions.html"><a href="event-related-callback-functions.html"><i class="fa fa-check"></i><b>6</b> Event-Related Callback Functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="experiment-flanker.html"><a href="experiment-flanker.html"><i class="fa fa-check"></i><b>6.1</b> Experiment: Flanker</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-nodes-and-loop-nodes.html"><a href="conditional-nodes-and-loop-nodes.html"><i class="fa fa-check"></i><b>7</b> Conditional Nodes and Loop Nodes</a><ul>
+<li class="chapter" data-level="7.1" data-path="experiment-lexical-decision-with-semantic-priming.html"><a href="experiment-lexical-decision-with-semantic-priming.html"><i class="fa fa-check"></i><b>7.1</b> Experiment: Lexical Decision with Semantic Priming</a></li>
+<li class="chapter" data-level="7.2" data-path="experiment-digit-span.html"><a href="experiment-digit-span.html"><i class="fa fa-check"></i><b>7.2</b> Experiment: Digit Span</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-media-files-images-audio-and-video.html"><a href="using-media-files-images-audio-and-video.html"><i class="fa fa-check"></i><b>8</b> Using Media Files: Images, Audio, and Video</a><ul>
+<li class="chapter" data-level="8.1" data-path="experiment-matrix-reasoning.html"><a href="experiment-matrix-reasoning.html"><i class="fa fa-check"></i><b>8.1</b> Experiment: Matrix Reasoning</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="randomization-and-sampling.html"><a href="randomization-and-sampling.html"><i class="fa fa-check"></i><b>9</b> Randomization and Sampling</a><ul>
+<li class="chapter" data-level="9.1" data-path="experiment-1.html"><a href="experiment-1.html"><i class="fa fa-check"></i><b>9.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="controlling-visual-appearance.html"><a href="controlling-visual-appearance.html"><i class="fa fa-check"></i><b>10</b> Controlling Visual Appearance</a><ul>
+<li class="chapter" data-level="10.1" data-path="experiment-2.html"><a href="experiment-2.html"><i class="fa fa-check"></i><b>10.1</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="modifying-and-creating-plugins.html"><a href="modifying-and-creating-plugins.html"><i class="fa fa-check"></i><b>11</b> Modifying and Creating Plugins</a><ul>
+<li class="chapter" data-level="11.1" data-path="experiment-3.html"><a href="experiment-3.html"><i class="fa fa-check"></i><b>11.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="jspsych-extensions.html"><a href="jspsych-extensions.html"><i class="fa fa-check"></i><b>12</b> jsPsych Extensions</a><ul>
+<li class="chapter" data-level="12.1" data-path="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><a href="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><i class="fa fa-check"></i><b>12.1</b> Experiment: Lexical Competition with the Visual World Paradigm (eye-tracking)</a></li>
+<li class="chapter" data-level="12.2" data-path="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><a href="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><i class="fa fa-check"></i><b>12.2</b> Experiment: Regressions to Ambiguities During Sentence Reading (MouseView)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="incorporating-external-js-libraries.html"><a href="incorporating-external-js-libraries.html"><i class="fa fa-check"></i><b>13</b> Incorporating External JS Libraries</a><ul>
+<li class="chapter" data-level="13.1" data-path="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><a href="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><i class="fa fa-check"></i><b>13.1</b> Experiment: Estimating Visual Perception Thresholds with an Random-Dot Kinematogram (RDK) Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online Behavioral Experiments with jsPsych</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-does-a-jspsych-experiment-work" class="section level2">
+<h2><span class="header-section-number">2.2</span> How does a jsPsych experiment work?</h2>
+<p>As shown in the previous section, experiments in jsPsych are created by specifying a timeline. Timelines contain a set of ordered trials, and each trial is associated with a particular plugin. When the experiment runs, the core jsPsych code (in <code>jspsych.js</code>) parses the timeline to determine what trials should run during the experiment. The jsPsych code then calls the plugin for the first trial, passing it all the parameters specified in the trial object, and the plugin gains control of the experiment. The plugin then specifies what happens during the trial, including the presentation of any stimuli and collection of responses. When the trial is done, the plugin sends control back to the core jsPsych library to determine what the next trial is, and which plugin should have control next. This continues until all of the trials in the timeline array have finished.</p>
+<p><em>add some kind of a visual representation of a timeline of trials?</em></p>
+<p>This section goes into detail about basic features of plugins and timelines. Advanced features are covered in later chapters with experiments that require more complicated timeline and plugin designs.</p>
+<div id="plugins" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Plugins</h3>
+<p>Plugins define a basic framework for trials, tasks, or events that can be used in a jsPsych experiment. Some plugins define very general events, like displaying text and recording a keyboard response, or playing a sound file and recording a button response. Other plugins are more specific, like those that display particular kinds of stimuli (e.g. Random-Dot Kinematogram, visual search circle), or run a specific version of particular kind of task (e.g. the Implicit Association Test). Creating an experiment with jsPsych involves figuring out which plugins are needed to create the tasks you want your participants to perform.</p>
+<p>Plugins provide a basic structure for running a particular trial and collecting a response, but they generally allow for significant customization and flexibility through the use of parameters. For example, the <code>image-keyboard-response</code> plugin defines a simple structure for showing an image and collecting a keyboard response. You can specify the what the stimulus is, what keys the subject is allowed to press, and how long the stimulus should be on the screen, how long the subject has to respond, and so on. Many of these options have reasonable default values; even though the image plugin has many different parameters, you only <em>need</em> to specify the image stimulus in order to use it.</p>
+<p>Each plugin has its own documentation page, which describes (1) what the plugin does, (2) what parameters (options) are available (including whether the parameter is required or optional, and what its default value is), and (3) what kind of data the plugin collects. The plugin documentation pages can be found in the “Plugins” section of the <a href="https://www.jspsych.org/">jsPsych website</a>.</p>
+<p>You can find an up-to-date list of plugins here: <a href="https://www.jspsych.org/plugins/list-of-plugins/">https://www.jspsych.org/plugins/list-of-plugins/</a>. Often the easiest way to understand what each plugin does is to run its example file. Each plugin has its own example HTML file in the <code>jspsych/plugins</code> folder. If you open an example file in your web browser, you will see a live demo of a few basic trials using that plugin. You can also open the HTML file in your text editor to see the code that is used to run the example trials.</p>
+<p>One of the great things about plugins is that they can be modified, and you can create your own custom plugins. The official set of jsPsych plugins provide enough flexibilty and breadth to cover an enormous range of possible tasks and experiments. But if your experiment requires something that can’t be achieved using existing plugins, you can always opt to modify or create plugins, and therefore still take advantage of the general jsPsych framework for managing the experiment timeline and data. This will be covered in CHAPTER XXX.</p>
+<div id="using-a-plugin" class="section level4">
+<h4><span class="header-section-number">2.2.1.1</span> Using a plugin</h4>
+<p>To use a plugin, you’ll need to load the plugin’s JavaScript file in your experiment’s HTML page. All jsPsych experiments also need to load the “jspsych.js” file before any plugin files.</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb52-1"><a href="how-does-a-jspsych-experiment-work.html#cb52-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb52-2"><a href="how-does-a-jspsych-experiment-work.html#cb52-2"></a>  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;jspsych/jspsych.js&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb52-3"><a href="how-does-a-jspsych-experiment-work.html#cb52-3"></a>  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;jspsych/plugins/jspsych-image-keyboard-response.js&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb52-4"><a href="how-does-a-jspsych-experiment-work.html#cb52-4"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<p>Once a plugin is loaded, you can define a trial that uses that plugin. All jsPsych trials must have a <code>type</code>, which tells jsPsych what plugin to use to run the trial. The trial’s <code>type</code> is the plugin name, which usually the same as the plugin file name, but without the “jspsych-” prefix.</p>
+<p>The following JavaScript code defines a trial using the <code>image-keyboard-response</code> plugin to display an image file. This trial uses the default values for all of the other parameters, such as the valid key choices, stimulus duration, and trial duration.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb53-1"><a href="how-does-a-jspsych-experiment-work.html#cb53-1"></a><span class="kw">var</span> image_trial <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb53-2"><a href="how-does-a-jspsych-experiment-work.html#cb53-2"></a>    <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;image-keyboard-response&#39;</span><span class="op">,</span> </span>
+<span id="cb53-3"><a href="how-does-a-jspsych-experiment-work.html#cb53-3"></a>    <span class="dt">stimulus</span><span class="op">:</span> <span class="st">&#39;images/happy_face.jpg&#39;</span></span>
+<span id="cb53-4"><a href="how-does-a-jspsych-experiment-work.html#cb53-4"></a><span class="op">}</span></span></code></pre></div>
+<p>You can override any default parameter values by adding them into your trial object. Here’s an exampe of overriding the default values for <code>trial_duration</code>, <code>choices</code>, and <code>post_trial_gap</code>. Unlike the previous example trial, this trial will only accept the “h” and “s” keys as valid responses (<code>choices</code> parameter), and it will automatically end after 3 seconds if no valid response is made before then (<code>trial_duration</code> parameter). There will be a 2 second delay between the end of this trial and the start of the next one (<code>post_trial_gap</code> parameter).</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb54-1"><a href="how-does-a-jspsych-experiment-work.html#cb54-1"></a><span class="kw">var</span> image_trial <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb54-2"><a href="how-does-a-jspsych-experiment-work.html#cb54-2"></a>  <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;image-keyboard-response&#39;</span><span class="op">,</span></span>
+<span id="cb54-3"><a href="how-does-a-jspsych-experiment-work.html#cb54-3"></a>  <span class="dt">stimulus</span><span class="op">:</span> <span class="st">&#39;images/happy_face.jpg&#39;</span><span class="op">,</span></span>
+<span id="cb54-4"><a href="how-does-a-jspsych-experiment-work.html#cb54-4"></a>  <span class="dt">trial_duration</span><span class="op">:</span> <span class="dv">3000</span><span class="op">,</span></span>
+<span id="cb54-5"><a href="how-does-a-jspsych-experiment-work.html#cb54-5"></a>  <span class="dt">choices</span><span class="op">:</span> [<span class="st">&#39;h&#39;</span><span class="op">,</span><span class="st">&#39;s&#39;</span>]<span class="op">,</span></span>
+<span id="cb54-6"><a href="how-does-a-jspsych-experiment-work.html#cb54-6"></a>  <span class="dt">post_trial_gap</span><span class="op">:</span> <span class="dv">2000</span></span>
+<span id="cb54-7"><a href="how-does-a-jspsych-experiment-work.html#cb54-7"></a><span class="op">}</span></span></code></pre></div>
+<ul>
+<li>what every plugin does (start, stop, collect data)</li>
+<li>kinds of plugins
+<ul>
+<li>advantages of generic and specific plugins</li>
+</ul></li>
+<li>how to use a plugin
+<ul>
+<li>docs and syntax</li>
+<li>default parameters</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="the-timeline" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> The timeline</h3>
+<ul>
+<li>array of trials</li>
+<li>executed in order</li>
+<li>how to create a timeline in code (style guide).</li>
+<li>repeating trials (timeline node with repetitions parameter)</li>
+<li>pointer to advanced features (single paragraph).</li>
+</ul>
+</div>
+<div id="static-and-dynamic-parameters" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Static and dynamic parameters</h3>
+<p><em>Move this to its own chapter?</em></p>
+<p>In a typical declaration of a jsPsych trial, the parameters values are known at the start of the experiment. These are called <em>static</em> parameters, because the value is known in advance and does not change. This makes it impossible to alter the content or nature of the trial based on things that happen during the experiment.</p>
+<p>However, most trial parameters can also be specified as <em>functions</em>. When functions are used as the parameter value, the function is evaluated during the experiment, right before the trial starts, and the return value of the function is used as the parameter value for that trial. This enables dynamic updating of trial parameters based on data that a subject has generated, or any other information that you do not know before the experiment has started.</p>
+<p>Below is a sketch of how this can be used to display feedback about a participant’s response. This <code>feedback</code> trial uses the <code>html-keyboard-response</code> plugin to display text to the participant indicating whether their response in the last trial was correct or incorrect.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb55-1"><a href="how-does-a-jspsych-experiment-work.html#cb55-1"></a><span class="kw">var</span> feedback <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb55-2"><a href="how-does-a-jspsych-experiment-work.html#cb55-2"></a>  <span class="dt">type</span><span class="op">:</span> <span class="st">&#39;html-keyboard-response&#39;</span><span class="op">,</span></span>
+<span id="cb55-3"><a href="how-does-a-jspsych-experiment-work.html#cb55-3"></a>  <span class="dt">stimulus</span><span class="op">:</span> <span class="kw">function</span>()<span class="op">{</span></span>
+<span id="cb55-4"><a href="how-does-a-jspsych-experiment-work.html#cb55-4"></a>    <span class="kw">var</span> last_trial_correct <span class="op">=</span> <span class="va">jsPsych</span>.<span class="va">data</span>.<span class="at">get</span>().<span class="at">last</span>(<span class="dv">1</span>).<span class="at">values</span>()[<span class="dv">0</span>].<span class="at">correct</span><span class="op">;</span></span>
+<span id="cb55-5"><a href="how-does-a-jspsych-experiment-work.html#cb55-5"></a>    <span class="cf">if</span> (last_trial_correct) <span class="op">{</span></span>
+<span id="cb55-6"><a href="how-does-a-jspsych-experiment-work.html#cb55-6"></a>      <span class="cf">return</span> <span class="st">&quot;Correct!&quot;</span><span class="op">;</span> </span>
+<span id="cb55-7"><a href="how-does-a-jspsych-experiment-work.html#cb55-7"></a>    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb55-8"><a href="how-does-a-jspsych-experiment-work.html#cb55-8"></a>      <span class="cf">return</span> <span class="st">&quot;Wrong.&quot;</span><span class="op">;</span> </span>
+<span id="cb55-9"><a href="how-does-a-jspsych-experiment-work.html#cb55-9"></a>    <span class="op">}</span></span>
+<span id="cb55-10"><a href="how-does-a-jspsych-experiment-work.html#cb55-10"></a>  <span class="op">},</span></span>
+<span id="cb55-11"><a href="how-does-a-jspsych-experiment-work.html#cb55-11"></a>  <span class="dt">choices</span><span class="op">:</span> <span class="va">jsPsych</span>.<span class="at">NO_KEYS</span></span>
+<span id="cb55-12"><a href="how-does-a-jspsych-experiment-work.html#cb55-12"></a><span class="op">}</span></span></code></pre></div>
+<p>It’s fine if you don’t understand exactly what this code is doing - some of this will be explained in later chapters. The important thing to note here is that the <code>stimulus</code> parameter isn’t a normal text string, like we’ve seen in previous example trials. Instead, it’s a function, which uses the syntax <code>function() { }</code>. When functions are used as trial parameters, they will be typically written like this:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb56-1"><a href="how-does-a-jspsych-experiment-work.html#cb56-1"></a>stimulus<span class="op">:</span> <span class="kw">function</span>() <span class="op">{</span></span>
+<span id="cb56-2"><a href="how-does-a-jspsych-experiment-work.html#cb56-2"></a>  <span class="co">// code here...</span></span>
+<span id="cb56-3"><a href="how-does-a-jspsych-experiment-work.html#cb56-3"></a><span class="op">}</span></span></code></pre></div>
+<p>In the <code>feedback</code> trial example, the code inside the <code>stimulus</code> function first checks whether the last response was correct or incorrect, and then uses that information to return one of two different text strings: “Correct! if the response was correct, or”Wrong." if it was incorrect. The <code>return</code> keyword is used to return a value from a function.</p>
+<ul>
+<li>KEY IDEA: most of the code that you are writing runs before the experiment even begins.</li>
+<li>need simple situation where we want dynamic parameter (but need a few more concepts… so maybe this moves to next chapter, and we do big 5 there. or do it again?</li>
+</ul>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="setting-up-your-first-experiment.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="experiment-demographics-questionnaire.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

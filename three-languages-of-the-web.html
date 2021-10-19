@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.2 Three languages of the web | Online Behavioral Experiments with jsPsych</title>
+  <meta name="description" content="1.2 Three languages of the web | Online Behavioral Experiments with jsPsych" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.2 Three languages of the web | Online Behavioral Experiments with jsPsych" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.2 Three languages of the web | Online Behavioral Experiments with jsPsych" />
+  
+  
+  
+
+<meta name="author" content="Joshua R. de Leeuw" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="how-a-website-works.html"/>
+<link rel="next" href="publishing-a-website.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="programming-for-the-web.html"><a href="programming-for-the-web.html"><i class="fa fa-check"></i><b>1</b> Programming for the Web</a><ul>
+<li class="chapter" data-level="1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html"><i class="fa fa-check"></i><b>1.1</b> How a website works</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html#front-end-and-back-end"><i class="fa fa-check"></i><b>1.1.1</b> “Front end” and “Back end”</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html"><i class="fa fa-check"></i><b>1.2</b> Three languages of the web</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#html"><i class="fa fa-check"></i><b>1.2.1</b> HTML</a></li>
+<li class="chapter" data-level="1.2.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#css"><i class="fa fa-check"></i><b>1.2.2</b> CSS</a></li>
+<li class="chapter" data-level="1.2.3" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#javascript"><i class="fa fa-check"></i><b>1.2.3</b> JavaScript</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="publishing-a-website.html"><a href="publishing-a-website.html"><i class="fa fa-check"></i><b>1.3</b> Publishing a website</a></li>
+<li class="chapter" data-level="1.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html"><i class="fa fa-check"></i><b>1.4</b> Tools for web development</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#editor"><i class="fa fa-check"></i><b>1.4.1</b> Editor</a></li>
+<li class="chapter" data-level="1.4.2" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#browser-developer-tools"><i class="fa fa-check"></i><b>1.4.2</b> Browser developer tools</a></li>
+<li class="chapter" data-level="1.4.3" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#sftp-client"><i class="fa fa-check"></i><b>1.4.3</b> SFTP client</a></li>
+<li class="chapter" data-level="1.4.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#database-client"><i class="fa fa-check"></i><b>1.4.4</b> Database client</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-jspsych-timeline.html"><a href="the-jspsych-timeline.html"><i class="fa fa-check"></i><b>2</b> The jsPsych Timeline</a><ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html"><i class="fa fa-check"></i><b>2.1</b> Setting up your first experiment</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-1.-create-a-folder-for-your-experiment."><i class="fa fa-check"></i><b>2.1.1</b> Step 1. Create a folder for your experiment.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-2.-download-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.2</b> Step 2. Download the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-3.-create-a-new-html-file."><i class="fa fa-check"></i><b>2.1.3</b> Step 3. Create a new HTML file.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-4.-load-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.4</b> Step 4. Load the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.5" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-5.-create-a-welcome-screen."><i class="fa fa-check"></i><b>2.1.5</b> Step 5. Create a welcome screen.</a></li>
+<li class="chapter" data-level="2.1.6" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-6.-create-a-timeline-and-add-the-welcome-screen."><i class="fa fa-check"></i><b>2.1.6</b> Step 6. Create a timeline and add the welcome screen.</a></li>
+<li class="chapter" data-level="2.1.7" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-7.-start-the-experiment"><i class="fa fa-check"></i><b>2.1.7</b> Step 7. Start the experiment!</a></li>
+<li class="chapter" data-level="2.1.8" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#the-completed-experiment."><i class="fa fa-check"></i><b>2.1.8</b> The completed experiment.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html"><i class="fa fa-check"></i><b>2.2</b> How does a jsPsych experiment work?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#plugins"><i class="fa fa-check"></i><b>2.2.1</b> Plugins</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#the-timeline"><i class="fa fa-check"></i><b>2.2.2</b> The timeline</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#static-and-dynamic-parameters"><i class="fa fa-check"></i><b>2.2.3</b> Static and dynamic parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="experiment-demographics-questionnaire.html"><a href="experiment-demographics-questionnaire.html"><i class="fa fa-check"></i><b>2.3</b> Experiment: Demographics questionnaire</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="timeline-variables.html"><a href="timeline-variables.html"><i class="fa fa-check"></i><b>3</b> Timeline Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="timeline-variables-1.html"><a href="timeline-variables-1.html"><i class="fa fa-check"></i><b>3.1</b> Timeline Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="combining-timeline-variables-and-static-information.html"><a href="combining-timeline-variables-and-static-information.html"><i class="fa fa-check"></i><b>3.2</b> Combining timeline variables and static information</a></li>
+<li class="chapter" data-level="3.3" data-path="experiment-the-big-5-personality-inventory.html"><a href="experiment-the-big-5-personality-inventory.html"><i class="fa fa-check"></i><b>3.3</b> Experiment: The Big 5 Personality Inventory</a></li>
+<li class="chapter" data-level="3.4" data-path="experiment-paired-associate-learning.html"><a href="experiment-paired-associate-learning.html"><i class="fa fa-check"></i><b>3.4</b> Experiment: Paired-Associate Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="working-with-jspsych-data.html"><a href="working-with-jspsych-data.html"><i class="fa fa-check"></i><b>4</b> Working with jsPsych data</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-structure-of-jspsych-data.html"><a href="the-structure-of-jspsych-data.html"><i class="fa fa-check"></i><b>4.1</b> The Structure of jsPsych Data</a></li>
+<li class="chapter" data-level="4.2" data-path="displaying-the-data-in-the-browser.html"><a href="displaying-the-data-in-the-browser.html"><i class="fa fa-check"></i><b>4.2</b> Displaying the Data in the Browser</a></li>
+<li class="chapter" data-level="4.3" data-path="saving-the-data-locally.html"><a href="saving-the-data-locally.html"><i class="fa fa-check"></i><b>4.3</b> Saving the Data Locally</a></li>
+<li class="chapter" data-level="4.4" data-path="saving-the-data-to-a-server.html"><a href="saving-the-data-to-a-server.html"><i class="fa fa-check"></i><b>4.4</b> Saving the Data to a server</a></li>
+<li class="chapter" data-level="4.5" data-path="working-with-data-during-the-experiment.html"><a href="working-with-data-during-the-experiment.html"><i class="fa fa-check"></i><b>4.5</b> Working with Data During the Experiment</a></li>
+<li class="chapter" data-level="4.6" data-path="experiment.html"><a href="experiment.html"><i class="fa fa-check"></i><b>4.6</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dynamic-parameters.html"><a href="dynamic-parameters.html"><i class="fa fa-check"></i><b>5</b> Dynamic Parameters</a><ul>
+<li class="chapter" data-level="5.1" data-path="experiment-stroop.html"><a href="experiment-stroop.html"><i class="fa fa-check"></i><b>5.1</b> Experiment: Stroop</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="event-related-callback-functions.html"><a href="event-related-callback-functions.html"><i class="fa fa-check"></i><b>6</b> Event-Related Callback Functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="experiment-flanker.html"><a href="experiment-flanker.html"><i class="fa fa-check"></i><b>6.1</b> Experiment: Flanker</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-nodes-and-loop-nodes.html"><a href="conditional-nodes-and-loop-nodes.html"><i class="fa fa-check"></i><b>7</b> Conditional Nodes and Loop Nodes</a><ul>
+<li class="chapter" data-level="7.1" data-path="experiment-lexical-decision-with-semantic-priming.html"><a href="experiment-lexical-decision-with-semantic-priming.html"><i class="fa fa-check"></i><b>7.1</b> Experiment: Lexical Decision with Semantic Priming</a></li>
+<li class="chapter" data-level="7.2" data-path="experiment-digit-span.html"><a href="experiment-digit-span.html"><i class="fa fa-check"></i><b>7.2</b> Experiment: Digit Span</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-media-files-images-audio-and-video.html"><a href="using-media-files-images-audio-and-video.html"><i class="fa fa-check"></i><b>8</b> Using Media Files: Images, Audio, and Video</a><ul>
+<li class="chapter" data-level="8.1" data-path="experiment-matrix-reasoning.html"><a href="experiment-matrix-reasoning.html"><i class="fa fa-check"></i><b>8.1</b> Experiment: Matrix Reasoning</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="randomization-and-sampling.html"><a href="randomization-and-sampling.html"><i class="fa fa-check"></i><b>9</b> Randomization and Sampling</a><ul>
+<li class="chapter" data-level="9.1" data-path="experiment-1.html"><a href="experiment-1.html"><i class="fa fa-check"></i><b>9.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="controlling-visual-appearance.html"><a href="controlling-visual-appearance.html"><i class="fa fa-check"></i><b>10</b> Controlling Visual Appearance</a><ul>
+<li class="chapter" data-level="10.1" data-path="experiment-2.html"><a href="experiment-2.html"><i class="fa fa-check"></i><b>10.1</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="modifying-and-creating-plugins.html"><a href="modifying-and-creating-plugins.html"><i class="fa fa-check"></i><b>11</b> Modifying and Creating Plugins</a><ul>
+<li class="chapter" data-level="11.1" data-path="experiment-3.html"><a href="experiment-3.html"><i class="fa fa-check"></i><b>11.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="jspsych-extensions.html"><a href="jspsych-extensions.html"><i class="fa fa-check"></i><b>12</b> jsPsych Extensions</a><ul>
+<li class="chapter" data-level="12.1" data-path="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><a href="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><i class="fa fa-check"></i><b>12.1</b> Experiment: Lexical Competition with the Visual World Paradigm (eye-tracking)</a></li>
+<li class="chapter" data-level="12.2" data-path="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><a href="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><i class="fa fa-check"></i><b>12.2</b> Experiment: Regressions to Ambiguities During Sentence Reading (MouseView)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="incorporating-external-js-libraries.html"><a href="incorporating-external-js-libraries.html"><i class="fa fa-check"></i><b>13</b> Incorporating External JS Libraries</a><ul>
+<li class="chapter" data-level="13.1" data-path="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><a href="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><i class="fa fa-check"></i><b>13.1</b> Experiment: Estimating Visual Perception Thresholds with an Random-Dot Kinematogram (RDK) Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online Behavioral Experiments with jsPsych</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="three-languages-of-the-web" class="section level2">
+<h2><span class="header-section-number">1.2</span> Three languages of the web</h2>
+<p>One of the challenging aspects of web development is that the programmer needs to know three different languages: HTML, CSS, and JavaScript. Each language is responsible for a different kind of information that the web browser needs in order to render the final website. HTML defines the structure of the elements on a website, such as the presence of text and images. CSS controls how those elements look. If you want to change the size of an image, the color of a background, or the font of a paragraph, you’ll be using CSS. HTML and CSS are both markup languages. <strong>[Need description of what that means]</strong>. JavaScript, on the other hand, is a true programming language. In addition to all the normal kinds of computation that programming langauges generally allow, JavaScript is especially good at interacting with HTML and CSS. JavaScript can manipulate the HTML and CSS of a website, allowing the programmer to specify rules about when certain elements on the page should be added or removed (manipulating HTML) and when their appearance should change (manipulating CSS). These interactions can produce very simple results, such as changing the size of an image when the user clicks on it, or very complex ones, such as the development of a video game entirely in HTML, CSS, and JavaScript.</p>
+<p>To create a simple experiment in jsPsych, you only need to have a basic familiarity with JavaScript. There is minimal HTML and CSS in the first few experiments in this book. However, if you want maximal flexibility over what content is in the screen and how it appears, you will need to become familiar with HTML and CSS. As you will discover, jsPsych is designed to allow users who are comfortable manipulating HTML and CSS full control over the output. <strong>[possible figure here with two different jsPsych examples, one simple one fancy]</strong>.</p>
+<div id="html" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> HTML</h3>
+<p>HTML (Hyper Text Markup Language) defines the elements that exist on a webpage. For example, the HTML below defines two paragraphs.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="three-languages-of-the-web.html#cb1-1"></a><span class="kw">&lt;p&gt;</span>This is the text in paragraph one.<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb1-2"><a href="three-languages-of-the-web.html#cb1-2"></a><span class="kw">&lt;p&gt;</span>This is the text in paragraph two.<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<p>HTML uses <em>tags</em> – like <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> above – to define elements. The type of element is defined by the text in the tag. <code>&lt;p&gt;</code> tags create paragraphs, <code>&lt;img&gt;</code> tags create images, and <code>&lt;audio&gt;</code> tags create audio. Elements begin with the type of element in <code>&lt; &gt;</code> brackets, and end with the same tag plus a backslash: <code>&lt;/ &gt;</code>.</p>
+<p>HTML defines <strong>a lot</strong> of different elements. <strong>[maybe a link here?]</strong>. But you don’t need to know all or even most of these to get started with HTML. As long as you understand a few ideas about how to use HTML, you’ll be able to understand HTML markup and modify it to suit your needs.</p>
+<div id="html-attributes" class="section level4">
+<h4><span class="header-section-number">1.2.1.1</span> HTML attributes</h4>
+<p>HTML tags often have additional attributes that control additional properties of the element. One attribute of the <code>&lt;img&gt;</code> tag is the <code>src</code>, which defines the source of the image. The <code>&lt;img&gt;</code> tag below has the <code>src</code> attribute set to the URL of the jsPsych logo.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="three-languages-of-the-web.html#cb2-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;https://www.jspsych.org/img/jspsych-logo.jpg&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></span></code></pre></div>
+<p>Attributes are declared by putting a space between the tag name and the attribute name and <code>=</code> after the attribute. The value to the right of the <code>=</code> will be assigned to that attribute. Tags can have multiple attributes separated by a space. The <code>alt</code> attribute for an <code>img</code> tag is used to describe the <em>alternate text</em> that would replace the image for users using screen readers or other assistive devices.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="three-languages-of-the-web.html#cb3-1"></a><span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;https://www.jspsych.org/img/jspsych-logo.jpg&quot;</span><span class="ot"> alt=</span><span class="st">&quot;jsPsych logo&quot;</span><span class="kw">&gt;&lt;/img&gt;</span></span></code></pre></div>
+<p>Two very useful attributes to know are <code>id</code> and <code>class</code>. These are both ways to identify elements on the page so that JavaScript and CSS can interact with them more easily. <code>id</code> values should typically be unique, and are used when CSS or JavaScript needs to target one particular element on a page. <code>class</code> values can be applied to many elements on a page, and are used when CSS or JavaScript needs to interact with all the instances of a particular set of elements.</p>
+</div>
+<div id="nesting-elements-in-html" class="section level4">
+<h4><span class="header-section-number">1.2.1.2</span> Nesting elements in HTML</h4>
+<p>Elements in HTML can be nested within other elements. For example, a link to another website may be nested within a paragraph.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="three-languages-of-the-web.html#cb4-1"></a><span class="kw">&lt;p&gt;</span>Please see the <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.jspsych.org&quot;</span><span class="kw">&gt;</span>jsPsych documentation<span class="kw">&lt;/a&gt;</span> for more information.<span class="kw">&lt;/p&gt;</span></span></code></pre></div>
+<p>An important aspect of nesting elements is that the inner-most element (<code>&lt;a&gt;</code> above) must be closed before the element that contains it is closed. The following is wrong because the <code>&lt;p&gt;</code> element is closed before <code>&lt;a&gt;</code>, but <code>&lt;a&gt;</code> started after <code>&lt;p&gt;</code>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="three-languages-of-the-web.html#cb5-1"></a><span class="kw">&lt;p&gt;</span>Visit <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://www.jspsych.org&quot;</span><span class="kw">&gt;</span>jsPsych.org<span class="kw">&lt;/p&gt;&lt;/a&gt;</span></span></code></pre></div>
+<p>Nesting allows HTML to naturally reflect the hierarchical structure of a webpage. Webpages often have distinct sections, like navigation and content, that contain many elements. The <code>&lt;div&gt;</code> element is used to create arbitrary divisions of the page.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="three-languages-of-the-web.html#cb6-1"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;table-of-contents&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb6-2"><a href="three-languages-of-the-web.html#cb6-2"></a>  <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;chapter-1.html&quot;</span><span class="kw">&gt;</span>Chapter 1<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb6-3"><a href="three-languages-of-the-web.html#cb6-3"></a>  <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;chapter-2.html&quot;</span><span class="kw">&gt;</span>Chapter 2<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb6-4"><a href="three-languages-of-the-web.html#cb6-4"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb6-5"><a href="three-languages-of-the-web.html#cb6-5"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;content&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb6-6"><a href="three-languages-of-the-web.html#cb6-6"></a>  <span class="kw">&lt;p&gt;</span>It all began...<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb6-7"><a href="three-languages-of-the-web.html#cb6-7"></a>  <span class="kw">&lt;p&gt;</span>And then ...<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb6-8"><a href="three-languages-of-the-web.html#cb6-8"></a>  <span class="kw">&lt;p&gt;</span>The end.<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb6-9"><a href="three-languages-of-the-web.html#cb6-9"></a><span class="kw">&lt;/div&gt;</span></span></code></pre></div>
+</div>
+<div id="a-bare-bones-html-document." class="section level4">
+<h4><span class="header-section-number">1.2.1.3</span> A bare-bones HTML document.</h4>
+<p>If you create a text file with a few words in it, save it as a <code>.html</code> file, and open it in a web browser you’ll find that it is displayed as a web page. In some sense, a file of text is a minimal HTML file. However, most HTML files have a standard set of sections that look something like this.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="three-languages-of-the-web.html#cb7-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="three-languages-of-the-web.html#cb7-2"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb7-3"><a href="three-languages-of-the-web.html#cb7-3"></a>  <span class="kw">&lt;head&gt;</span></span>
+<span id="cb7-4"><a href="three-languages-of-the-web.html#cb7-4"></a>    <span class="kw">&lt;title&gt;</span>A bare-bones HTML document<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb7-5"><a href="three-languages-of-the-web.html#cb7-5"></a>  <span class="kw">&lt;/head&gt;</span></span>
+<span id="cb7-6"><a href="three-languages-of-the-web.html#cb7-6"></a>  <span class="kw">&lt;body&gt;</span></span>
+<span id="cb7-7"><a href="three-languages-of-the-web.html#cb7-7"></a>  <span class="kw">&lt;/body&gt;</span></span>
+<span id="cb7-8"><a href="three-languages-of-the-web.html#cb7-8"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+<p>The above has a few HTML-elements, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;title&gt;</code>, and <code>&lt;body&gt;</code>, as well as something that looks like an HTML element – <code>&lt;!DOCTYPE html&gt;</code> but is actually a declaration to the web browser about what kind of document this is and what the root element of the document is. In this case <code>&lt;html&gt;</code> serves as the root element, which is standard practice.</p>
+<p><code>&lt;head&gt;</code> defines the head-section of the document, which can contain information about the page that is not directly rendered in the visible page. An example of this is the <code>&lt;title&gt;</code> element, which controls the title that is displayed in the window or tab of the web browser.</p>
+<p><code>&lt;body&gt;</code> is the element that contains all of the content that will be displayed.</p>
+</div>
+</div>
+<div id="css" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> CSS</h3>
+<p>CSS (Cascading Style Sheets) is a markup language that defines the visual appearance of elements on a webpage. For example, this CSS rule declares that all text in <code>&lt;p&gt;</code> tags will be displayed with a 24px font and in red.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb8-1"><a href="three-languages-of-the-web.html#cb8-1"></a>p { <span class="kw">font-size</span>: <span class="dv">24</span><span class="dt">px</span><span class="op">;</span> <span class="kw">color</span>: <span class="cn">red</span><span class="op">;</span> }</span></code></pre></div>
+<p>CSS rules require the use of a <em>selector</em>. The selector defines the set of elements that the rule applies to. The selector appears before the <code>{</code>. In the above example, the selector applies the rule to all <code>&lt;p&gt;</code> elements. Any HTML element type can be used as a selector. For example, the following properties set the background color of the <code>&lt;body&gt;</code> element to black and the text color to white.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb9-1"><a href="three-languages-of-the-web.html#cb9-1"></a>body { <span class="kw">background-color</span>: <span class="cn">black</span><span class="op">;</span> <span class="kw">color</span>: <span class="cn">white</span><span class="op">;</span> }</span></code></pre></div>
+<p>Two common selectors are selection by ID and by class. Recall that the HTML attribute <code>id</code> can be used to assign a unique name to an element, and the HTML attribute <code>class</code> can be used to group elements that share something in common together under a shared name. To apply a CSS rule to an element with a particular ID, the <code>#</code> symbol is placed before the ID.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb10-1"><a href="three-languages-of-the-web.html#cb10-1"></a><span class="pp">#table-of-contents</span> { <span class="kw">width</span>: <span class="dv">500</span><span class="dt">px</span><span class="op">;</span> }</span></code></pre></div>
+<p>To apply a CSS rule to all elements that belong to a particular class, the <code>.</code> symbol is placed before the class name.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb11-1"><a href="three-languages-of-the-web.html#cb11-1"></a><span class="fu">.navigation-link</span> { <span class="kw">color</span>: <span class="cn">blue</span><span class="op">;</span> }</span></code></pre></div>
+<p>Inside the <code>{ }</code> appear a list of style rules that are applied to all elements that match the selector. The set of style rules is enormous, so the important thing is not to memorize different rules that could be applied, but rather to understand the concept of applying rules to elements based on selectors.</p>
+<div id="where-does-css-go-in-a-document" class="section level4">
+<h4><span class="header-section-number">1.2.2.1</span> Where does CSS go in a document?</h4>
+<p>There are three places where CSS typically appears in an HTML document. Each of these places is equally valid, and the choice of where to include CSS depends on what is easiest. Often CSS will exist in all three locations in a single document.</p>
+<div id="external-css-file" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.1</span> External CSS file</h5>
+<p>One option is to create a separate <code>.css</code> file and load the file in the HTML document via a <code>&lt;link&gt;</code> tag in the <code>&lt;head&gt;</code> element.</p>
+<p><em>styles.css</em></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb12-1"><a href="three-languages-of-the-web.html#cb12-1"></a>body { <span class="kw">width</span>: <span class="dv">600</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb12-2"><a href="three-languages-of-the-web.html#cb12-2"></a></span>
+<span id="cb12-3"><a href="three-languages-of-the-web.html#cb12-3"></a>p { <span class="kw">font-size</span>: <span class="dv">18</span><span class="dt">px</span><span class="op">;</span> <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span> }</span></code></pre></div>
+<p><em>webpage.html</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="three-languages-of-the-web.html#cb13-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb13-2"><a href="three-languages-of-the-web.html#cb13-2"></a>  <span class="kw">&lt;link</span><span class="ot"> href=</span><span class="st">&quot;styles.css&quot;</span><span class="ot"> rel=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/css&quot;</span><span class="kw">&gt;&lt;/link&gt;</span></span>
+<span id="cb13-3"><a href="three-languages-of-the-web.html#cb13-3"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<p>The <code>&lt;link&gt;</code> tag has a few attributes that need to be set. The <code>href</code> attribute is the path to the source file. This path is relative to the location of the <code>.html</code> file that the <code>&lt;link&gt;</code> is in. If the <code>.html</code> and <code>.css</code> files are in the same folder, then just the name of the <code>.css</code> file is sufficient. The <code>rel</code> and <code>type</code> attributes both describe what kind of content is being loaded.</p>
+</div>
+<div id="style-tag" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.2</span> <code>&lt;style&gt;</code> tag</h5>
+<p>Another option is to include a <code>&lt;style&gt;</code> tag in the <code>&lt;head&gt;</code> element of the document.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="three-languages-of-the-web.html#cb14-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb14-2"><a href="three-languages-of-the-web.html#cb14-2"></a>  <span class="kw">&lt;style&gt;</span></span>
+<span id="cb14-3"><a href="three-languages-of-the-web.html#cb14-3"></a>    body { <span class="kw">width</span>: <span class="dv">600</span><span class="dt">px</span><span class="op">;</span> }</span>
+<span id="cb14-4"><a href="three-languages-of-the-web.html#cb14-4"></a>    p { <span class="kw">font-size</span>: <span class="dv">18</span><span class="dt">px</span><span class="op">;</span> <span class="kw">font-weight</span>: <span class="dv">bold</span><span class="op">;</span> }</span>
+<span id="cb14-5"><a href="three-languages-of-the-web.html#cb14-5"></a>  <span class="kw">&lt;/style&gt;</span></span>
+<span id="cb14-6"><a href="three-languages-of-the-web.html#cb14-6"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+</div>
+<div id="style-attribute" class="section level5">
+<h5><span class="header-section-number">1.2.2.1.3</span> <code>style</code> attribute</h5>
+<p>HTML elements also support the <code>style</code> attribute, allowing styles to be set within the tag itself.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="three-languages-of-the-web.html#cb15-1"></a><span class="kw">&lt;body</span><span class="ot"> style=</span><span class="st">&quot;width:600px&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb15-2"><a href="three-languages-of-the-web.html#cb15-2"></a>  <span class="kw">&lt;p</span><span class="ot"> style=</span><span class="st">&quot;font-size:18px; font-weight: bold;&quot;</span><span class="kw">&gt;</span>The start of a paragraph...<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb15-3"><a href="three-languages-of-the-web.html#cb15-3"></a><span class="kw">&lt;/body&gt;</span></span></code></pre></div>
+<p>This method is a little bit different than the first two, because there is no selector or <code>{ }</code> to define the rule. That’s because the style attribute of an element only applies to that element. This method of adding style can be useful when there is only a single element that needs the style rule. This method is also used a lot by jsPsych because (as will become clear much later in the book) it is a relatively easy way to embed style information in JavaScript code that is generating HTML content.</p>
+</div>
+</div>
+</div>
+<div id="javascript" class="section level3">
+<h3><span class="header-section-number">1.2.3</span> JavaScript</h3>
+<p>JavaScript is one of the most popular programming languages. Originally created to enable dynamic and interactive content in websites, JavaScript is now used for both websites and general purpose programming. JavaScript is still the dominant language of the web because it is understood by all the major web browsers and is enabled by default.</p>
+<p>Some of the things that you can do with JavaScript include:</p>
+<ul>
+<li>Changing HTML and CSS of a website in response to events. For example, a short JavaScript program make it so that when a user clicks a button an image on the page is changed to a new image. Controlling HTML and CSS will be one of the primary ways in which JavaScript is used when building online experiments.</li>
+<li>Recording data about how a user interacts with a webpage. JavaScript has access to information like what keys are being pressed on a keyboard and where the mouse is on the screen. It also has access to the time that these events occur.</li>
+<li>Sending and retrieving data from other applications on the web. For example, JavaScript can communicate with a database to store and access data.</li>
+</ul>
+<p>Learning JavaScript is a much bigger task than learning HTML or CSS, but you don’t need to master JavaScript to start using jsPsych. If you learn a few features of the language and understand how JavaScript interacts with HTML and CSS then you’ll be able to start programming the experiments in this book.</p>
+<div id="the-javascript-language" class="section level4">
+<h4><span class="header-section-number">1.2.3.1</span> The JavaScript language</h4>
+<div id="comments" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.1</span> Comments</h5>
+<p>In JavaScript, every bit of text is either a <em>comment</em> or <em>code</em>. Comments are there only for the benefit of the programmer or anyone else reading the code. They are ignored by the JavaScript engine.</p>
+<p>To comment text on a single line, use two forward slashes <code>//</code></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb16-1"><a href="three-languages-of-the-web.html#cb16-1"></a><span class="co">// this is a comment</span></span></code></pre></div>
+<p>To comment multiple lines of text, use <code>/*</code> at the start and <code>*/</code> at the end.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb17-1"><a href="three-languages-of-the-web.html#cb17-1"></a><span class="co">/*</span></span>
+<span id="cb17-2"><a href="three-languages-of-the-web.html#cb17-2"></a><span class="co">this is a comment</span></span>
+<span id="cb17-3"><a href="three-languages-of-the-web.html#cb17-3"></a><span class="co">and so is this</span></span>
+<span id="cb17-4"><a href="three-languages-of-the-web.html#cb17-4"></a><span class="co">*/</span></span></code></pre></div>
+</div>
+<div id="variables" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.2</span> Variables</h5>
+<p>Variables are a way to store information. To store the value <code>3</code> in the variable <code>x</code>, we can do the following.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb18-1"><a href="three-languages-of-the-web.html#cb18-1"></a><span class="kw">var</span> x <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div>
+<p><code>var</code>, short for variable, is how we declare that something is a variable. The <code>=</code> sign is called the <em>assignment operator</em>. In this case we would say that we are assigning the value <code>3</code> to the the variable <code>x</code>. In addition to numbers, two other common kinds of values that are assigned to variables are set of characters (called <code>strings</code>) and the boolean values <code>true</code> and <code>false</code>.</p>
+<p>Strings are created by placing the set of characters inside either single quotes <code>' '</code> or double quotes <code>" "</code>. Either one is acceptable, but the starting and ending quote type need to match.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb19-1"><a href="three-languages-of-the-web.html#cb19-1"></a><span class="kw">var</span> my_string <span class="op">=</span> <span class="st">&#39;hello, reader!&#39;</span><span class="op">;</span></span>
+<span id="cb19-2"><a href="three-languages-of-the-web.html#cb19-2"></a></span>
+<span id="cb19-3"><a href="three-languages-of-the-web.html#cb19-3"></a><span class="kw">var</span> are_we_there_yet <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span></code></pre></div>
+<p>Changing the value of a variable that already exists works almost the same as creating a variable, except that you don’t need the <code>var</code> keyword, because JavaScript already understands that the name refers to a variable.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb20-1"><a href="three-languages-of-the-web.html#cb20-1"></a>are_we_there_yet <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span></code></pre></div>
+</div>
+<div id="arrays" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.3</span> Arrays</h5>
+<p>Arrays allow related data to be stored together in a single variable.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb21-1"><a href="three-languages-of-the-web.html#cb21-1"></a><span class="kw">var</span> months_of_the_year <span class="op">=</span> [<span class="st">&#39;January&#39;</span><span class="op">,</span> <span class="st">&#39;February&#39;</span><span class="op">,</span> <span class="st">&#39;March&#39;</span><span class="op">,</span> <span class="st">&#39;April&#39;</span><span class="op">,</span> <span class="st">&#39;May&#39;</span><span class="op">,</span> <span class="st">&#39;June&#39;</span><span class="op">,</span> <span class="st">&#39;July&#39;</span><span class="op">,</span> <span class="st">&#39;August&#39;</span><span class="op">,</span> <span class="st">&#39;September&#39;</span><span class="op">,</span> <span class="st">&#39;October&#39;</span><span class="op">,</span> <span class="st">&#39;November&#39;</span><span class="op">,</span> <span class="st">&#39;December&#39;</span>]<span class="op">;</span></span></code></pre></div>
+<p>They are created with square brackets <code>[ ]</code> and commas separating each value.</p>
+<p>Information in an array is accessed by putting the index of the desired position in the array inside the <code>[ ]</code>. To get the first item in the array:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb22-1"><a href="three-languages-of-the-web.html#cb22-1"></a>months_of_the_year[<span class="dv">0</span>]<span class="op">;</span> <span class="co">// outputs &#39;January&#39;</span></span></code></pre></div>
+<p>Note that array indices begin with 0, not 1. Though sometimes confusing, this is standard practice in most programming languages.</p>
+</div>
+<div id="objects" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.4</span> Objects</h5>
+<p>Objects also allow related data to be stored together, but unlike arrays each bit of data in an object is named.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb23-1"><a href="three-languages-of-the-web.html#cb23-1"></a><span class="kw">var</span> person <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb23-2"><a href="three-languages-of-the-web.html#cb23-2"></a>  <span class="dt">name</span><span class="op">:</span> <span class="st">&#39;John Doe&#39;</span><span class="op">,</span></span>
+<span id="cb23-3"><a href="three-languages-of-the-web.html#cb23-3"></a>  <span class="dt">age</span><span class="op">:</span> <span class="dv">35</span><span class="op">,</span></span>
+<span id="cb23-4"><a href="three-languages-of-the-web.html#cb23-4"></a>  <span class="dt">employed</span><span class="op">:</span> <span class="kw">false</span></span>
+<span id="cb23-5"><a href="three-languages-of-the-web.html#cb23-5"></a><span class="op">}</span></span></code></pre></div>
+<p>There are two primary ways to access the data stored in an object.</p>
+<p>Dot notation uses a <code>.</code> after the variable name.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb24-1"><a href="three-languages-of-the-web.html#cb24-1"></a><span class="va">person</span>.<span class="at">name</span><span class="op">;</span> <span class="co">// outputs &#39;John Doe&#39;</span></span></code></pre></div>
+<p>Bracket notation uses square brackets with the name of the property inside the brackets.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb25-1"><a href="three-languages-of-the-web.html#cb25-1"></a>person[<span class="st">&#39;name&#39;</span>] <span class="co">// also outputs &#39;John Doe&#39;</span></span></code></pre></div>
+</div>
+<div id="operators" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.5</span> Operators</h5>
+<p>Operators perform assignment, arithmetic, comparison, or logical operations between different values.</p>
+<p>One operator that has already appeared above is the assignment operator, <code>=</code>. It takes the value on it’s right and stores it in the variable on the left. Values can be assigned to normal variables, arrays, or objects.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb26-1"><a href="three-languages-of-the-web.html#cb26-1"></a><span class="kw">var</span> name <span class="op">=</span> <span class="st">&#39;Jane&#39;</span><span class="op">;</span></span>
+<span id="cb26-2"><a href="three-languages-of-the-web.html#cb26-2"></a></span>
+<span id="cb26-3"><a href="three-languages-of-the-web.html#cb26-3"></a><span class="kw">var</span> person <span class="op">=</span> <span class="op">{};</span></span>
+<span id="cb26-4"><a href="three-languages-of-the-web.html#cb26-4"></a><span class="va">person</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&#39;Jane&#39;</span><span class="op">;</span></span>
+<span id="cb26-5"><a href="three-languages-of-the-web.html#cb26-5"></a></span>
+<span id="cb26-6"><a href="three-languages-of-the-web.html#cb26-6"></a><span class="kw">var</span> people <span class="op">=</span> []<span class="op">;</span></span>
+<span id="cb26-7"><a href="three-languages-of-the-web.html#cb26-7"></a>people[<span class="dv">0</span>] <span class="op">=</span> <span class="st">&#39;Jane&#39;</span><span class="op">;</span></span></code></pre></div>
+<p>Arithmetic operators perform addition, subtraction, multiplication, and division:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb27-1"><a href="three-languages-of-the-web.html#cb27-1"></a><span class="kw">var</span> four <span class="op">=</span> <span class="dv">2</span> <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb27-2"><a href="three-languages-of-the-web.html#cb27-2"></a><span class="kw">var</span> five <span class="op">=</span> <span class="dv">8</span> <span class="op">-</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb27-3"><a href="three-languages-of-the-web.html#cb27-3"></a><span class="kw">var</span> six <span class="op">=</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb27-4"><a href="three-languages-of-the-web.html#cb27-4"></a><span class="kw">var</span> seven <span class="op">=</span> <span class="dv">21</span> <span class="op">/</span> <span class="dv">3</span><span class="op">;</span></span></code></pre></div>
+<p>Comparison operators are used to check if two values are equal, or if there is a particular kind of difference between values.</p>
+<p><code>==</code> checks for equality</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb28-1"><a href="three-languages-of-the-web.html#cb28-1"></a><span class="dv">4</span> <span class="op">==</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// false</span></span>
+<span id="cb28-2"><a href="three-languages-of-the-web.html#cb28-2"></a></span>
+<span id="cb28-3"><a href="three-languages-of-the-web.html#cb28-3"></a><span class="kw">var</span> four <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb28-4"><a href="three-languages-of-the-web.html#cb28-4"></a><span class="dv">4</span> <span class="op">==</span> four<span class="op">;</span> <span class="co">// true</span></span></code></pre></div>
+<p><code>!=</code> checks for inequality</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb29-1"><a href="three-languages-of-the-web.html#cb29-1"></a><span class="dv">4</span> <span class="op">!=</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// true</span></span>
+<span id="cb29-2"><a href="three-languages-of-the-web.html#cb29-2"></a></span>
+<span id="cb29-3"><a href="three-languages-of-the-web.html#cb29-3"></a><span class="kw">var</span> four <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb29-4"><a href="three-languages-of-the-web.html#cb29-4"></a><span class="dv">4</span> <span class="op">!=</span> four<span class="op">;</span> <span class="co">// false</span></span></code></pre></div>
+<p><code>&gt;</code> checks if the left value is greater than the right. <code>&gt;=</code> checks if the left value is greater than or equal to the value on the right.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb30-1"><a href="three-languages-of-the-web.html#cb30-1"></a><span class="kw">var</span> four <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb30-2"><a href="three-languages-of-the-web.html#cb30-2"></a><span class="dv">4</span> <span class="op">&gt;</span> four<span class="op">;</span> <span class="co">// false</span></span>
+<span id="cb30-3"><a href="three-languages-of-the-web.html#cb30-3"></a><span class="dv">4</span> <span class="op">&gt;=</span> four<span class="op">;</span> <span class="co">// true</span></span></code></pre></div>
+<p><code>&lt;</code> checks if the left vaue is less than the right. <code>&lt;=</code> checks if the left value is less than or equal to the value on the right.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb31-1"><a href="three-languages-of-the-web.html#cb31-1"></a><span class="kw">var</span> four <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb31-2"><a href="three-languages-of-the-web.html#cb31-2"></a>four <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> <span class="co">// true</span></span>
+<span id="cb31-3"><a href="three-languages-of-the-web.html#cb31-3"></a><span class="dv">4</span> <span class="op">&lt;</span> <span class="dv">3</span><span class="op">;</span> <span class="co">// false</span></span></code></pre></div>
+<p>Logical operators determine whether there is a particular relationship between values.</p>
+<p><code>&amp;&amp;</code> checks if the value on the left AND the value on the right are both true.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb32-1"><a href="three-languages-of-the-web.html#cb32-1"></a><span class="kw">true</span> <span class="op">&amp;&amp;</span> <span class="kw">true</span><span class="op">;</span> <span class="co">// true</span></span>
+<span id="cb32-2"><a href="three-languages-of-the-web.html#cb32-2"></a><span class="dv">3</span> <span class="op">&gt;</span> <span class="dv">2</span> <span class="op">&amp;&amp;</span> <span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// true</span></span>
+<span id="cb32-3"><a href="three-languages-of-the-web.html#cb32-3"></a></span>
+<span id="cb32-4"><a href="three-languages-of-the-web.html#cb32-4"></a><span class="kw">var</span> three <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb32-5"><a href="three-languages-of-the-web.html#cb32-5"></a><span class="kw">var</span> five <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb32-6"><a href="three-languages-of-the-web.html#cb32-6"></a></span>
+<span id="cb32-7"><a href="three-languages-of-the-web.html#cb32-7"></a>three <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">&amp;&amp;</span> five <span class="op">&gt;</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// false</span></span></code></pre></div>
+<p><code>||</code> checks if the value on the left OR the value on the right is true.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb33-1"><a href="three-languages-of-the-web.html#cb33-1"></a><span class="kw">true</span> <span class="op">||</span> <span class="kw">false</span><span class="op">;</span> <span class="co">// true;</span></span>
+<span id="cb33-2"><a href="three-languages-of-the-web.html#cb33-2"></a><span class="dv">3</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">||</span> <span class="dv">1</span> <span class="op">!=</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// false;</span></span>
+<span id="cb33-3"><a href="three-languages-of-the-web.html#cb33-3"></a></span>
+<span id="cb33-4"><a href="three-languages-of-the-web.html#cb33-4"></a><span class="kw">var</span> three <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb33-5"><a href="three-languages-of-the-web.html#cb33-5"></a><span class="kw">var</span> five <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb33-6"><a href="three-languages-of-the-web.html#cb33-6"></a></span>
+<span id="cb33-7"><a href="three-languages-of-the-web.html#cb33-7"></a>three <span class="op">&lt;</span> <span class="dv">2</span> <span class="op">||</span> five <span class="op">&gt;</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// true;</span></span></code></pre></div>
+<p><code>!</code> inverts the truth value of whatever appears on the right.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb34-1"><a href="three-languages-of-the-web.html#cb34-1"></a><span class="op">!</span>(<span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// false</span></span>
+<span id="cb34-2"><a href="three-languages-of-the-web.html#cb34-2"></a><span class="op">!</span>(<span class="dv">2</span> <span class="op">&lt;</span> <span class="dv">1</span>)<span class="op">;</span> <span class="co">// true</span></span>
+<span id="cb34-3"><a href="three-languages-of-the-web.html#cb34-3"></a></span>
+<span id="cb34-4"><a href="three-languages-of-the-web.html#cb34-4"></a><span class="kw">var</span> x <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb34-5"><a href="three-languages-of-the-web.html#cb34-5"></a><span class="op">!</span>x<span class="op">;</span> <span class="co">// false</span></span></code></pre></div>
+</div>
+<div id="functions" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.6</span> Functions</h5>
+<p>Functions, sometimes also called <em>methods</em>, are self-contained sets of code that can be invoked through a name given to the function.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb35-1"><a href="three-languages-of-the-web.html#cb35-1"></a><span class="co">// create a function</span></span>
+<span id="cb35-2"><a href="three-languages-of-the-web.html#cb35-2"></a><span class="kw">function</span> <span class="at">addTwo</span>(x)<span class="op">{</span></span>
+<span id="cb35-3"><a href="three-languages-of-the-web.html#cb35-3"></a>  <span class="cf">return</span> x <span class="op">+</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb35-4"><a href="three-languages-of-the-web.html#cb35-4"></a><span class="op">}</span></span>
+<span id="cb35-5"><a href="three-languages-of-the-web.html#cb35-5"></a></span>
+<span id="cb35-6"><a href="three-languages-of-the-web.html#cb35-6"></a><span class="co">// invoke the function</span></span>
+<span id="cb35-7"><a href="three-languages-of-the-web.html#cb35-7"></a><span class="at">addTwo</span>(<span class="dv">6</span>)<span class="op">;</span> <span class="co">// outputs 8</span></span></code></pre></div>
+<p>Functions are created via the <code>function</code> keyword. Functions can have 0 or more parameters. In the example above, <code>addTwo</code> has one parameter called <code>x</code>. This parameter is defined by putting the desired name of the parameter inside the <code>( )</code> that occur immediately after the name of the function. Inside the body of the function, the code between the <code>{ }</code>, <code>x</code> takes on whatever value is used when the function is called. If the function call is <code>addTwo(6)</code>, then <code>x</code> is 6. If the function call is <code>addTwo(1)</code>, <code>x</code> is 1. The output of a function is specified by the <code>return</code> keyword. In the <code>addTwo</code> function, the statement <code>x + 2</code> is evaluated and the resulting value is the output of the function. The output can be stored in a variable.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb36-1"><a href="three-languages-of-the-web.html#cb36-1"></a><span class="kw">var</span> output <span class="op">=</span> <span class="at">addTwo</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
+</div>
+<div id="control-statements" class="section level5">
+<h5><span class="header-section-number">1.2.3.1.7</span> Control Statements</h5>
+</div>
+</div>
+<div id="javascript-htmlcss" class="section level4">
+<h4><span class="header-section-number">1.2.3.2</span> JavaScript + HTML/CSS</h4>
+<p>JavaScript is the tool that can turn a static website into an interactive one. JavaScript can alter the HTML and CSS of a website, allowing it to indirectly control what appears on the website and how it looks. There are several different approaches for using JavaScript to control the HTML and CSS of a website, and this section only covers a few of the most common.</p>
+<p>A powerful JavaScript function is <code>.querySelector()</code>. This function works in a similar way to CSS selectors. You can provide a selector, and the function will return the first HTML element that matches the selector. Unlike CSS selectors, with <code>.querySelector</code> you have to specify a root element, which is the HTML element that <code>querySelector</code> will search in. If you want to search the entire page, you can use the <code>document</code> root element.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode html"><code class="sourceCode html"></code></pre></div>
+<p><code>.querySelector()</code> selects an HTML element, which can then be modified in a few different ways. One task that you might want to accomplish is to change the content of that element, and one way to accomplish this is to change the <code>.innerHTML</code> property of the element.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode html"><code class="sourceCode html"></code></pre></div>
+<p>Another task is modifying some aspect of the style of the element. All the style properties of an element can be accessed with <code>.style</code> and then the property name. For example, the following code changes the background color of the <code>&lt;body&gt;</code> element.</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb39-1"><a href="three-languages-of-the-web.html#cb39-1"></a><span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;red&#39;</span><span class="op">;</span></span></code></pre></div>
+</div>
+<div id="where-does-javascript-go-in-a-document" class="section level4">
+<h4><span class="header-section-number">1.2.3.3</span> Where does JavaScript go in a document?</h4>
+<p>Like with CSS, there are several ways to include JavaScript in an <code>.html</code> document.</p>
+<div id="script-tag-with-src-attribute" class="section level5">
+<h5><span class="header-section-number">1.2.3.3.1</span> <code>&lt;script&gt;</code> tag with src attribute</h5>
+<p>JavaScript can be stored in a separate <code>.js</code> file and then loaded into a document using the <code>&lt;script&gt;</code> tag.</p>
+<p><em>code.js</em></p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode js"><code class="sourceCode javascript"><span id="cb40-1"><a href="three-languages-of-the-web.html#cb40-1"></a><span class="kw">function</span> <span class="at">changeColor</span>()<span class="op">{</span></span>
+<span id="cb40-2"><a href="three-languages-of-the-web.html#cb40-2"></a>  <span class="cf">if</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">==</span> <span class="st">&#39;white&#39;</span>)<span class="op">{</span></span>
+<span id="cb40-3"><a href="three-languages-of-the-web.html#cb40-3"></a>    <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;black&#39;</span><span class="op">;</span></span>
+<span id="cb40-4"><a href="three-languages-of-the-web.html#cb40-4"></a>  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb40-5"><a href="three-languages-of-the-web.html#cb40-5"></a>    <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;white&#39;</span><span class="op">;</span></span>
+<span id="cb40-6"><a href="three-languages-of-the-web.html#cb40-6"></a>  <span class="op">}</span></span>
+<span id="cb40-7"><a href="three-languages-of-the-web.html#cb40-7"></a><span class="op">}</span></span></code></pre></div>
+<p><em>webpage.html</em></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb41-1"><a href="three-languages-of-the-web.html#cb41-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb41-2"><a href="three-languages-of-the-web.html#cb41-2"></a>  <span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;code.js&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb41-3"><a href="three-languages-of-the-web.html#cb41-3"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<p>The <code>src</code> attribute provides the path to the <code>.js</code> file, relative to the location of the <code>.html</code> file that contains the <code>&lt;script&gt;</code> element. If the <code>.html</code> and <code>.js</code> files are in the same folder, then the filename alone is sufficient.</p>
+<p>The example above creates a function <code>changeColor()</code> which will change the <code>background-color</code> style rule for the <code>&lt;body&gt;</code> element every time it is called. If the current color is <code>white</code> then it changes to <code>black</code>; otherwise it changes to <code>white</code>. This function, once loaded via the <code>&lt;script&gt;</code> tag, can be called by other JavaScript code in the HTML document.</p>
+</div>
+<div id="script-tag-with-embedded-content" class="section level5">
+<h5><span class="header-section-number">1.2.3.3.2</span> <code>&lt;script&gt;</code> tag with embedded content</h5>
+<p>The <code>&lt;script&gt;</code> tag can also be used without the <code>src</code> attribute, placing the JavaScript directly inside the tag instead.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb42-1"><a href="three-languages-of-the-web.html#cb42-1"></a><span class="kw">&lt;head&gt;</span></span>
+<span id="cb42-2"><a href="three-languages-of-the-web.html#cb42-2"></a>  <span class="kw">&lt;script&gt;</span></span>
+<span id="cb42-3"><a href="three-languages-of-the-web.html#cb42-3"></a>    <span class="kw">function</span> <span class="at">changeColor</span>()<span class="op">{</span></span>
+<span id="cb42-4"><a href="three-languages-of-the-web.html#cb42-4"></a>      <span class="cf">if</span>(<span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">==</span> <span class="st">&#39;white&#39;</span>)<span class="op">{</span></span>
+<span id="cb42-5"><a href="three-languages-of-the-web.html#cb42-5"></a>        <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;black&#39;</span><span class="op">;</span></span>
+<span id="cb42-6"><a href="three-languages-of-the-web.html#cb42-6"></a>      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb42-7"><a href="three-languages-of-the-web.html#cb42-7"></a>        <span class="va">document</span>.<span class="at">querySelector</span>(<span class="st">&#39;body&#39;</span>).<span class="va">style</span>.<span class="at">backgroundColor</span> <span class="op">=</span> <span class="st">&#39;white&#39;</span><span class="op">;</span></span>
+<span id="cb42-8"><a href="three-languages-of-the-web.html#cb42-8"></a>      <span class="op">}</span></span>
+<span id="cb42-9"><a href="three-languages-of-the-web.html#cb42-9"></a>    <span class="op">}</span></span>
+<span id="cb42-10"><a href="three-languages-of-the-web.html#cb42-10"></a>  <span class="kw">&lt;/script&gt;</span></span>
+<span id="cb42-11"><a href="three-languages-of-the-web.html#cb42-11"></a><span class="kw">&lt;/head&gt;</span></span></code></pre></div>
+<p>This has the equivalent effect of the first example. The <code>&lt;script&gt;</code> tag does not necessarily need to appear in the <code>&lt;head&gt;</code> section. Often the <code>&lt;script&gt;</code> tag is placed after the end of the <code>&lt;body&gt;</code>, in order to have the content in the <code>&lt;body&gt;</code> tag load first. In the minimal HTML document, it would look like this.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb43-1"><a href="three-languages-of-the-web.html#cb43-1"></a><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span></span>
+<span id="cb43-2"><a href="three-languages-of-the-web.html#cb43-2"></a><span class="kw">&lt;html&gt;</span></span>
+<span id="cb43-3"><a href="three-languages-of-the-web.html#cb43-3"></a>  <span class="kw">&lt;head&gt;</span></span>
+<span id="cb43-4"><a href="three-languages-of-the-web.html#cb43-4"></a>    <span class="kw">&lt;title&gt;</span>A bare-bones HTML document<span class="kw">&lt;/title&gt;</span></span>
+<span id="cb43-5"><a href="three-languages-of-the-web.html#cb43-5"></a>  <span class="kw">&lt;/head&gt;</span></span>
+<span id="cb43-6"><a href="three-languages-of-the-web.html#cb43-6"></a>  <span class="kw">&lt;body&gt;</span></span>
+<span id="cb43-7"><a href="three-languages-of-the-web.html#cb43-7"></a>  <span class="kw">&lt;/body&gt;</span></span>
+<span id="cb43-8"><a href="three-languages-of-the-web.html#cb43-8"></a>  <span class="kw">&lt;script&gt;</span></span>
+<span id="cb43-9"><a href="three-languages-of-the-web.html#cb43-9"></a>    <span class="co">// JavaScript code can be placed here</span></span>
+<span id="cb43-10"><a href="three-languages-of-the-web.html#cb43-10"></a>  <span class="kw">&lt;/script&gt;</span></span>
+<span id="cb43-11"><a href="three-languages-of-the-web.html#cb43-11"></a><span class="kw">&lt;/html&gt;</span></span></code></pre></div>
+</div>
+<div id="in-certain-attributes" class="section level5">
+<h5><span class="header-section-number">1.2.3.3.3</span> In certain attributes</h5>
+<p>Some HTML attributes support JavaScript code embedded right in the HTML tag declaration. However, this is mostly an outdated approach at this point, and this method is not recommended. It’s mentioned here in case you come across it. An example of this approach is the <code>onclick</code> attribute of a <code>&lt;button&gt;</code> element.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb44-1"><a href="three-languages-of-the-web.html#cb44-1"></a><span class="kw">&lt;button</span><span class="ot"> onclick=</span><span class="st">&quot;changeColor();&quot;</span><span class="kw">&gt;</span>Click me!<span class="kw">&lt;/button&gt;</span></span></code></pre></div>
+<p>Every time the button is clicked the JavaScript function <code>changeColor</code> will be called. This function would be defined in a <code>&lt;script&gt;</code> tag elsewhere in the document. The JavaScript code is not limited to calling a single function. In theory, many statements could be executed by the button click, but in practice most programmers find that trying to embed long bits of JavaScript in HTML attributes produces difficult to read code.</p>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="how-a-website-works.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="publishing-a-website.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

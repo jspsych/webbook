@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1.1 How a website works | Online Behavioral Experiments with jsPsych</title>
+  <meta name="description" content="1.1 How a website works | Online Behavioral Experiments with jsPsych" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1.1 How a website works | Online Behavioral Experiments with jsPsych" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1.1 How a website works | Online Behavioral Experiments with jsPsych" />
+  
+  
+  
+
+<meta name="author" content="Joshua R. de Leeuw" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="programming-for-the-web.html"/>
+<link rel="next" href="three-languages-of-the-web.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="programming-for-the-web.html"><a href="programming-for-the-web.html"><i class="fa fa-check"></i><b>1</b> Programming for the Web</a><ul>
+<li class="chapter" data-level="1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html"><i class="fa fa-check"></i><b>1.1</b> How a website works</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="how-a-website-works.html"><a href="how-a-website-works.html#front-end-and-back-end"><i class="fa fa-check"></i><b>1.1.1</b> “Front end” and “Back end”</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html"><i class="fa fa-check"></i><b>1.2</b> Three languages of the web</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#html"><i class="fa fa-check"></i><b>1.2.1</b> HTML</a></li>
+<li class="chapter" data-level="1.2.2" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#css"><i class="fa fa-check"></i><b>1.2.2</b> CSS</a></li>
+<li class="chapter" data-level="1.2.3" data-path="three-languages-of-the-web.html"><a href="three-languages-of-the-web.html#javascript"><i class="fa fa-check"></i><b>1.2.3</b> JavaScript</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="publishing-a-website.html"><a href="publishing-a-website.html"><i class="fa fa-check"></i><b>1.3</b> Publishing a website</a></li>
+<li class="chapter" data-level="1.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html"><i class="fa fa-check"></i><b>1.4</b> Tools for web development</a><ul>
+<li class="chapter" data-level="1.4.1" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#editor"><i class="fa fa-check"></i><b>1.4.1</b> Editor</a></li>
+<li class="chapter" data-level="1.4.2" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#browser-developer-tools"><i class="fa fa-check"></i><b>1.4.2</b> Browser developer tools</a></li>
+<li class="chapter" data-level="1.4.3" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#sftp-client"><i class="fa fa-check"></i><b>1.4.3</b> SFTP client</a></li>
+<li class="chapter" data-level="1.4.4" data-path="tools-for-web-development.html"><a href="tools-for-web-development.html#database-client"><i class="fa fa-check"></i><b>1.4.4</b> Database client</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="the-jspsych-timeline.html"><a href="the-jspsych-timeline.html"><i class="fa fa-check"></i><b>2</b> The jsPsych Timeline</a><ul>
+<li class="chapter" data-level="2.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html"><i class="fa fa-check"></i><b>2.1</b> Setting up your first experiment</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-1.-create-a-folder-for-your-experiment."><i class="fa fa-check"></i><b>2.1.1</b> Step 1. Create a folder for your experiment.</a></li>
+<li class="chapter" data-level="2.1.2" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-2.-download-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.2</b> Step 2. Download the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.3" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-3.-create-a-new-html-file."><i class="fa fa-check"></i><b>2.1.3</b> Step 3. Create a new HTML file.</a></li>
+<li class="chapter" data-level="2.1.4" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-4.-load-the-jspsych-library."><i class="fa fa-check"></i><b>2.1.4</b> Step 4. Load the jsPsych library.</a></li>
+<li class="chapter" data-level="2.1.5" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-5.-create-a-welcome-screen."><i class="fa fa-check"></i><b>2.1.5</b> Step 5. Create a welcome screen.</a></li>
+<li class="chapter" data-level="2.1.6" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-6.-create-a-timeline-and-add-the-welcome-screen."><i class="fa fa-check"></i><b>2.1.6</b> Step 6. Create a timeline and add the welcome screen.</a></li>
+<li class="chapter" data-level="2.1.7" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#step-7.-start-the-experiment"><i class="fa fa-check"></i><b>2.1.7</b> Step 7. Start the experiment!</a></li>
+<li class="chapter" data-level="2.1.8" data-path="setting-up-your-first-experiment.html"><a href="setting-up-your-first-experiment.html#the-completed-experiment."><i class="fa fa-check"></i><b>2.1.8</b> The completed experiment.</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html"><i class="fa fa-check"></i><b>2.2</b> How does a jsPsych experiment work?</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#plugins"><i class="fa fa-check"></i><b>2.2.1</b> Plugins</a></li>
+<li class="chapter" data-level="2.2.2" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#the-timeline"><i class="fa fa-check"></i><b>2.2.2</b> The timeline</a></li>
+<li class="chapter" data-level="2.2.3" data-path="how-does-a-jspsych-experiment-work.html"><a href="how-does-a-jspsych-experiment-work.html#static-and-dynamic-parameters"><i class="fa fa-check"></i><b>2.2.3</b> Static and dynamic parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="experiment-demographics-questionnaire.html"><a href="experiment-demographics-questionnaire.html"><i class="fa fa-check"></i><b>2.3</b> Experiment: Demographics questionnaire</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="timeline-variables.html"><a href="timeline-variables.html"><i class="fa fa-check"></i><b>3</b> Timeline Variables</a><ul>
+<li class="chapter" data-level="3.1" data-path="timeline-variables-1.html"><a href="timeline-variables-1.html"><i class="fa fa-check"></i><b>3.1</b> Timeline Variables</a></li>
+<li class="chapter" data-level="3.2" data-path="combining-timeline-variables-and-static-information.html"><a href="combining-timeline-variables-and-static-information.html"><i class="fa fa-check"></i><b>3.2</b> Combining timeline variables and static information</a></li>
+<li class="chapter" data-level="3.3" data-path="experiment-the-big-5-personality-inventory.html"><a href="experiment-the-big-5-personality-inventory.html"><i class="fa fa-check"></i><b>3.3</b> Experiment: The Big 5 Personality Inventory</a></li>
+<li class="chapter" data-level="3.4" data-path="experiment-paired-associate-learning.html"><a href="experiment-paired-associate-learning.html"><i class="fa fa-check"></i><b>3.4</b> Experiment: Paired-Associate Learning</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="working-with-jspsych-data.html"><a href="working-with-jspsych-data.html"><i class="fa fa-check"></i><b>4</b> Working with jsPsych data</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-structure-of-jspsych-data.html"><a href="the-structure-of-jspsych-data.html"><i class="fa fa-check"></i><b>4.1</b> The Structure of jsPsych Data</a></li>
+<li class="chapter" data-level="4.2" data-path="displaying-the-data-in-the-browser.html"><a href="displaying-the-data-in-the-browser.html"><i class="fa fa-check"></i><b>4.2</b> Displaying the Data in the Browser</a></li>
+<li class="chapter" data-level="4.3" data-path="saving-the-data-locally.html"><a href="saving-the-data-locally.html"><i class="fa fa-check"></i><b>4.3</b> Saving the Data Locally</a></li>
+<li class="chapter" data-level="4.4" data-path="saving-the-data-to-a-server.html"><a href="saving-the-data-to-a-server.html"><i class="fa fa-check"></i><b>4.4</b> Saving the Data to a server</a></li>
+<li class="chapter" data-level="4.5" data-path="working-with-data-during-the-experiment.html"><a href="working-with-data-during-the-experiment.html"><i class="fa fa-check"></i><b>4.5</b> Working with Data During the Experiment</a></li>
+<li class="chapter" data-level="4.6" data-path="experiment.html"><a href="experiment.html"><i class="fa fa-check"></i><b>4.6</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="dynamic-parameters.html"><a href="dynamic-parameters.html"><i class="fa fa-check"></i><b>5</b> Dynamic Parameters</a><ul>
+<li class="chapter" data-level="5.1" data-path="experiment-stroop.html"><a href="experiment-stroop.html"><i class="fa fa-check"></i><b>5.1</b> Experiment: Stroop</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="event-related-callback-functions.html"><a href="event-related-callback-functions.html"><i class="fa fa-check"></i><b>6</b> Event-Related Callback Functions</a><ul>
+<li class="chapter" data-level="6.1" data-path="experiment-flanker.html"><a href="experiment-flanker.html"><i class="fa fa-check"></i><b>6.1</b> Experiment: Flanker</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="conditional-nodes-and-loop-nodes.html"><a href="conditional-nodes-and-loop-nodes.html"><i class="fa fa-check"></i><b>7</b> Conditional Nodes and Loop Nodes</a><ul>
+<li class="chapter" data-level="7.1" data-path="experiment-lexical-decision-with-semantic-priming.html"><a href="experiment-lexical-decision-with-semantic-priming.html"><i class="fa fa-check"></i><b>7.1</b> Experiment: Lexical Decision with Semantic Priming</a></li>
+<li class="chapter" data-level="7.2" data-path="experiment-digit-span.html"><a href="experiment-digit-span.html"><i class="fa fa-check"></i><b>7.2</b> Experiment: Digit Span</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="using-media-files-images-audio-and-video.html"><a href="using-media-files-images-audio-and-video.html"><i class="fa fa-check"></i><b>8</b> Using Media Files: Images, Audio, and Video</a><ul>
+<li class="chapter" data-level="8.1" data-path="experiment-matrix-reasoning.html"><a href="experiment-matrix-reasoning.html"><i class="fa fa-check"></i><b>8.1</b> Experiment: Matrix Reasoning</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="randomization-and-sampling.html"><a href="randomization-and-sampling.html"><i class="fa fa-check"></i><b>9</b> Randomization and Sampling</a><ul>
+<li class="chapter" data-level="9.1" data-path="experiment-1.html"><a href="experiment-1.html"><i class="fa fa-check"></i><b>9.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="controlling-visual-appearance.html"><a href="controlling-visual-appearance.html"><i class="fa fa-check"></i><b>10</b> Controlling Visual Appearance</a><ul>
+<li class="chapter" data-level="10.1" data-path="experiment-2.html"><a href="experiment-2.html"><i class="fa fa-check"></i><b>10.1</b> Experiment</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="modifying-and-creating-plugins.html"><a href="modifying-and-creating-plugins.html"><i class="fa fa-check"></i><b>11</b> Modifying and Creating Plugins</a><ul>
+<li class="chapter" data-level="11.1" data-path="experiment-3.html"><a href="experiment-3.html"><i class="fa fa-check"></i><b>11.1</b> Experiment:</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="jspsych-extensions.html"><a href="jspsych-extensions.html"><i class="fa fa-check"></i><b>12</b> jsPsych Extensions</a><ul>
+<li class="chapter" data-level="12.1" data-path="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><a href="experiment-lexical-competition-with-the-visual-world-paradigm-eye-tracking.html"><i class="fa fa-check"></i><b>12.1</b> Experiment: Lexical Competition with the Visual World Paradigm (eye-tracking)</a></li>
+<li class="chapter" data-level="12.2" data-path="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><a href="experiment-regressions-to-ambiguities-during-sentence-reading-mouseview.html"><i class="fa fa-check"></i><b>12.2</b> Experiment: Regressions to Ambiguities During Sentence Reading (MouseView)</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="incorporating-external-js-libraries.html"><a href="incorporating-external-js-libraries.html"><i class="fa fa-check"></i><b>13</b> Incorporating External JS Libraries</a><ul>
+<li class="chapter" data-level="13.1" data-path="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><a href="experiment-estimating-visual-perception-thresholds-with-an-random-dot-kinematogram-rdk-task.html"><i class="fa fa-check"></i><b>13.1</b> Experiment: Estimating Visual Perception Thresholds with an Random-Dot Kinematogram (RDK) Task</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Online Behavioral Experiments with jsPsych</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="how-a-website-works" class="section level2">
+<h2><span class="header-section-number">1.1</span> How a website works</h2>
+<p>When you open a browser and type in the URL of this book (<a href="http://book.jspsych.org" class="uri">http://book.jspsych.org</a>) lots of things have to happen in order for you to see the website. A connection is established between your computer and another computer that “serves” the website. One or more files are then transferred from the server to your computer. These files include HTML documents, CSS stylesheets, JavaScript files, and media elements like audio files and images. As a developer, your role is to create all of the files that are needed to render the website as you want it.</p>
+<p>A crticial point to remember as a new web developer is that it is the job of the web browser to transform this set of files into a website. As a developer, you are providing a (very detailed) “recipe” and the browser is assembling the final dish. This might seem a bit troubling. If three chefs were given the same recipe the results might be noticably different. Fortunately, browsers are far more precise than chefs and usually websites look the same regardless of which browser is doing the rendering. This is thanks to a commonly agreed upon set of standards that browser developers follow. However, these standards have some ambiguity and as a result there are times when a website will look exactly like you want it to in one browser but not in another.</p>
+<div id="front-end-and-back-end" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> “Front end” and “Back end”</h3>
+<p>Two (or more) computers are involved when a website is requested: The computer that the viewer of the website is using and one or more computers that are serving the website. Programming for the web is conceptually divided based on which of the computers is running the code. If the code is running on the viewer’s computer, it’s <em>front-end</em> development. If it is running on the computer serving the website, it’s <em>back-end</em> development.</p>
+<p>This chapter focuses on <em>front-end</em> web development. This kind of web development focuses on what the viewer of the website sees and how they interact with the website. It involves HTML, CSS, and JavaScript.</p>
+<p><em>Back-end</em> development is focused on programs that run on the computer(s) serving the website. These programs typically handle tasks that require access to data stored on the server. For data-rich websites, most of the programming is back-end focused. There are many programming languages that can be used for back-end development.</p>
+<p>For a typical online experiment, most of the programming is focused on the front end. As researchers, we need to control what the user is seeing or hearing, and how they are interacting with the experiment. These are tasks that are controlled by front-end development. One aspect of back-end programming that experiments do need to handle is data storage. JavaScript (running on the participant’s computer) can record data from an experiment, but in order to store the data on the researcher’s server back-end programming is necessary. Fortunately, these back-end scripts are interchangeable for jsPsych experiments. [Chapter X] provides a sample data saving script that should work for any jsPsych experiment.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="programming-for-the-web.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="three-languages-of-the-web.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
